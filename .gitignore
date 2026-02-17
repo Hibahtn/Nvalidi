@@ -1,29 +1,4 @@
-# OS files
-.DS_Store
-Thumbs.db
-
-# VS Code
-.vscode/
-
-# JetBrains IDEs
-.idea/
-
-# Sublime
-*.sublime-project
-*.sublime-workspace
-# Composer dependencies
-vendor/
-
-# Composer lock (optional — usually kept, but depends on project type)
-# composer.lock
-
-# Environment files
+/vendor/
+/node_modules/
 .env
-.env.local
-# User uploads
-uploads/
-
-# Cache
-cache/
-tmp/
 
