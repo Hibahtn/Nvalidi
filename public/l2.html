@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Nvalidi - L2 Informatique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/dash.css">
+    <link rel="stylesheet" href="../assets/css/tables.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">NVAL<span>IDI</span></div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="todo.html"><i class="fas fa-tasks"></i> To Do List</a></li>
+            <li><a href="flashcards.html"><i class="fas fa-layer-group"></i> Flash Cards</a></li>
+            <li><a href="memory.html"><i class="fas fa-gamepad"></i> Jeux Mémoire</a></li>
+            <li><a href="calcul.html" class="active"><i class="fas fa-calculator"></i> Calcul Moyenne</a></li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+        </ul>
+        <a href="acceuil.html" class="logout-link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+    </nav>
+    <div class="main-content">
+        <header class="dash-header">
+            <div class="profile-btn" onclick="window.location.href='profile.html'"><span>Mon Profile</span><i class="fas fa-user-circle fa-lg"></i></div>
+        </header>
+        <div class="content-area">
+            <a href="calcul.html" class="back-link">← Retour aux niveaux</a>
+            <h2 class="page-title">Licence 2 Informatique</h2>
+
+            <!-- ── Semestre 1 ── -->
+            <div class="table-container">
+                <h3 class="semester-title">Semestre 1</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Module</th>
+                            <th>Matière</th>
+                            <th>Coefficient</th>
+                            <th>TD/TP</th>
+                            <th>DS</th>
+                            <th>Examen</th>
+                            <th>Moyenne</th>
+                            <th>Crédit</th>
+                            <th>Moyenne Module</th>
+                            <th>Crédit Module</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- CPOO -->
+                        <tr>
+                            <td rowspan="2">CPOO</td>
+                            <td>Conception UML</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p2_si_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_si_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_si_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_si">0</td>
+                            <td id="p2_cr_si">0</td>
+                            <td rowspan="2" id="p2_m_cpoo">0</td>
+                            <td rowspan="2" id="p2_cr_cpoo">0</td>
+                        </tr>
+                        <tr>
+                            <td>Java</td>
+                            <td>2</td>
+                            <td><input type="number" class="input-note" id="p2_java_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_java_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_java_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_java">0</td>
+                            <td id="p2_cr_java">0</td>
+                        </tr>
+                        <!-- Probabilité -->
+                        <tr>
+                            <td>Probabilité</td>
+                            <td>Probabilité et Statistique</td>
+                            <td>2</td>
+                            <td><input type="number" class="input-note" id="p2_proba_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_proba_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_proba_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_proba">0</td>
+                            <td id="p2_cr_proba">0</td>
+                            <td id="p2_m_probabilite">0</td>
+                            <td id="p2_cr_probabilite">0</td>
+                        </tr>
+                        <!-- Automate -->
+                        <tr>
+                            <td rowspan="2">Automate</td>
+                            <td>TLA</td>
+                            <td>1</td>
+                            <td><input type="number" class="input-note" id="p2_tla_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_tla_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_tla_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_tla">0</td>
+                            <td id="p2_cr_tla">0</td>
+                            <td rowspan="2" id="p2_m_automate">0</td>
+                            <td rowspan="2" id="p2_cr_automate">0</td>
+                        </tr>
+                        <tr>
+                            <td>Graphes</td>
+                            <td>1</td>
+                            <td><input type="number" class="input-note" id="p2_graph_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_graph_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_graph_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_graphe">0</td>
+                            <td id="p2_cr_graph">0</td>
+                        </tr>
+                        <!-- Base de données -->
+                        <tr>
+                            <td rowspan="2">Base de données</td>
+                            <td>Ingénierie BD</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p2_bd_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_bd_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_bd_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_base">0</td>
+                            <td id="p2_cr_bd">0</td>
+                            <td rowspan="2" id="p2_m_basededonne">0</td>
+                            <td rowspan="2" id="p2_cr_basededonne">0</td>
+                        </tr>
+                        <tr>
+                            <td>Réseaux</td>
+                            <td>1</td>
+                            <td><input type="number" class="input-note" id="p2_res_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_res_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_res_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_reseau">0</td>
+                            <td id="p2_cr_reseau">0</td>
+                        </tr>
+                        <!-- Langue et culture -->
+                        <tr>
+                            <td rowspan="2">Langue et culture</td>
+                            <td>Anglais</td>
+                            <td>1</td>
+                            <td></td>
+                            <td><input type="number" class="input-note" id="p2_ang_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_ang_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_ang">0</td>
+                            <td id="p2_cr_ang">0</td>
+                            <td rowspan="2" id="p2_m_langue">0</td>
+                            <td rowspan="2" id="p2_cr_langue">0</td>
+                        </tr>
+                        <tr>
+                            <td>Gestion</td>
+                            <td>1</td>
+                            <td></td>
+                            <td><input type="number" class="input-note" id="p2_gest_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_gest_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_gestion">0</td>
+                            <td id="p2_cr_gestion">0</td>
+                        </tr>
+                        <!-- UE Optionnelle -->
+                        <tr>
+                            <td rowspan="2">UE Optionnelle</td>
+                            <td>Entreprise System</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p2_ent_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_ent_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_ent_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_ent">0</td>
+                            <td id="p2_cr_ent">0</td>
+                            <td rowspan="2" id="p2_m_uo">0</td>
+                            <td rowspan="2" id="p2_cr_uo">0</td>
+                        </tr>
+                        <tr>
+                            <td>System Modeling</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p2_sys_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_sys_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_sys_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_sys">0</td>
+                            <td id="p2_cr_sys">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- ── Semestre 2 ── -->
+            <div class="table-container">
+                <h3 class="semester-title">Semestre 2</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Matière</th>
+                            <th>Note DS</th>
+                            <th>Note Examen</th>
+                            <th>Coefficient</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td>Programmation Web</td><td><input type="number" class="input-note"></td><td><input type="number" class="input-note"></td><td>2.0</td></tr>
+                        <tr><td>Intelligence artificielle</td><td><input type="number" class="input-note"></td><td><input type="number" class="input-note"></td><td>1.5</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <button class="btn-calcul">Calculer Moyenne L2</button>
+        </div>
+    </div>
+</body>
+</html>
