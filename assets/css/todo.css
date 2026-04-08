@@ -1,0 +1,62 @@
+.todo-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.todo-header {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.todo-input {
+    flex: 1;
+    padding: 15px 20px;
+    border-radius: 15px;
+    border: 2px solid var(--accent-blue);
+    outline: none;
+    font-size: 1rem;
+}
+
+.todo-input:focus {
+    border-color: var(--primary-pink);
+}
+
+.add-btn {
+    background-color: var(--primary-pink);
+    border: none;
+    padding: 0 25px;
+    border-radius: 15px;
+    color: var(--dark-text);
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.todo-item {
+    background: var(--white);
+    padding: 15px 20px;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    transition: 0.3s;
+}
+
+.todo-text {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.todo-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-pink);
+}
+
+.delete-todo {
+    color: #ff7675;
+    cursor: pointer;
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nvalidi - To Do List</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/dash.css">
+    <link rel="stylesheet" href="../assets/css/todo.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">NVAL<span>IDI</span></div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="todo.html" class="active"><i class="fas fa-tasks"></i> To Do List</a></li>
+            <li><a href="flashcards.html"><i class="fas fa-layer-group"></i> Flash Cards</a></li>
+            <li><a href="memory.html"><i class="fas fa-gamepad"></i> Jeux Mémoire</a></li>
+            <li><a href="calcul.html"><i class="fas fa-calculator"></i> Calcul Moyenne</a></li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+        </ul>
+        <a href="acceuil.html" class="logout-link">
+            <i class="fas fa-sign-out-alt"></i> Déconnexion
+        </a>
+    </nav>
+    <div class="main-content">
+        <header class="dash-header">
+             <div class="profile-btn" onclick="window.location.href='profile.html'"><span>Mon Profile</span><i class="fas fa-user-circle fa-lg"></i></div>
+        </header>
+        <div class="content-area">
+            <div class="welcome-banner" style="background: linear-gradient(135deg, var(--white) 0%, var(--primary-pink) 100%);">
+                <h1>Ma To Do List 📝</h1>
+                <p>Organise tes révisions et tes projets académiques ici.</p>
+            </div>
+            <div class="todo-container">
+                <div class="todo-header">
+                    <input type="text" class="todo-input" placeholder="Ajouter une tâche (ex: Réviser GDA)...">
+                    <button class="add-btn">Ajouter</button>
+                </div>
+                <ul class="todo-list">
+                    <li class="todo-item">
+                        <div class="todo-text">
+                            <input type="checkbox" class="todo-checkbox">
+                            <span>Finir le projet de développement Web</span>
+                        </div>
+                        <i class="fas fa-trash-alt delete-todo"></i>
+                    </li>
+                    <li class="todo-item">
+                        <div class="todo-text">
+                            <input type="checkbox" class="todo-checkbox" checked>
+                            <span style="text-decoration: line-through; opacity: 0.6;">Calculer ma moyenne S1</span>
+                        </div>
+                        <i class="fas fa-trash-alt delete-todo"></i>
+                    </li>
+                </ul>
+                <div class="empty-state">
+                    <p>     Bravo ! Tu es à jour dans tes tâches !</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+fonts.googleapis.com

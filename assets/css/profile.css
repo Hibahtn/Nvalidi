@@ -1,0 +1,130 @@
+.profile-header {
+    background: linear-gradient(135deg, var(--accent-blue) 0%, var(--primary-pink) 100%);
+    padding: 50px 40px;
+    border-radius: 30px;
+    margin-bottom: 40px;
+    color: var(--dark-text);
+}
+
+.profile-info-main {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.avatar-large {
+    width: 120px;
+    height: 120px;
+    background-color: var(--white);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4rem;
+    color: var(--accent-blue);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.user-details h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+}
+
+.university {
+    font-weight: 500;
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.badge {
+    background-color: var(--white);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--dark-text);
+}
+
+.profile-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+}
+
+.profile-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 25px;
+    border: 1px solid #eee;
+}
+
+.profile-card h3 {
+    margin-bottom: 25px;
+    font-size: 1.1rem;
+    color: var(--dark-text);
+}
+
+.stat-item {
+    margin-bottom: 20px;
+}
+
+.stat-item span {
+    display: block;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    background-color: var(--soft-grey);
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 5px;
+}
+
+.progress-fill {
+    height: 100%;
+    background-color: var(--accent-blue);
+    border-radius: 10px;
+}
+
+.stat-value {
+    text-align: right;
+    color: var(--primary-pink) !important;
+}
+
+.contact-info ul {
+    list-style: none;
+}
+
+.contact-info li {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 0.95rem;
+}
+
+.contact-info li i {
+    color: var(--accent-blue);
+}
+
+.edit-profile-link {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--primary-pink);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.edit-profile-link:hover {
+    text-decoration: underline;
+}
+
+.active-profile {
+    border-color: var(--primary-pink) !important;
+    background-color: var(--white) !important;
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nvalidi - Mon Profil</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/dash.css">
+    <link rel="stylesheet" href="../assets/css/profile.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">NVAL<span>IDI</span></div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="todo.html"><i class="fas fa-tasks"></i> To Do List</a></li>
+            <li><a href="flashcards.html"><i class="fas fa-layer-group"></i> Flash Cards</a></li>
+            <li><a href="memory.html"><i class="fas fa-gamepad"></i> Jeux Mémoire</a></li>
+            <li><a href="calcul.html"><i class="fas fa-calculator"></i> Calcul Moyenne</a></li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+        </ul>
+        <a href="acceuil.html" class="logout-link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+    </nav>
+    <div class="main-content">
+        <header class="dash-header">
+            <a href="dashboard.html" class="profile-btn active-profile">
+                <span>Mon Profile</span>
+                <i class="fas fa-user-circle fa-lg"></i>
+            </a>
+        </header>
+        <div class="content-area">
+            <div class="profile-header">
+                <div class="profile-info-main">
+                    <div class="avatar-large">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <div class="user-details">
+                        <h1>Étudiante ISIMM</h1>
+                        <p class="university">Institut Supérieur d'Informatique et de Mathématiques de Monastir</p>
+                        <span class="badge">L3 Informatique</span>
+                    </div>
+                </div>
+            </div>
+            <div class="profile-grid">
+                <div class="profile-card stats-summary">
+                    <h3>Ma Progression</h3>
+                    <div class="stat-item">
+                        <span>Moyenne Générale</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
+                        <span class="stat-value">14.20</span>
+                    </div>
+                    <div class="stat-item">
+                        <span>Tâches complétées</span>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 85%; background: var(--primary-pink);"></div></div>
+                        <span class="stat-value">85%</span>
+                    </div>
+                </div>
+                <div class="profile-card contact-info">
+                    <h3>Coordonnées</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> etudiante@isimm.u-monastir.tn</li>
+                        <li><i class="fas fa-id-card"></i> ID Étudiant: 2026-0412</li>
+                        <li><i class="fas fa-calendar-alt"></i> Inscrite depuis Septembre 2023</li>
+                    </ul>
+                    <a href="settings.html" class="edit-profile-link">Modifier le profil</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+fonts.googleapis.com
