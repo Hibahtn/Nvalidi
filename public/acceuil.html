@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nvalidi - Plateforme Étudiante ISIMM</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/acceuil.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">NVAL<span>IDI</span></div>
+            <ul>
+                <li><a href="#home">Accueil</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="register.html">S'inscrire</a></li>
+                <li class="login-btn"><a href="login.html">Connexion</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Réussissez votre licence à l'<span>ISIMM</span></h1>
+            <p>Calculez vos moyennes, révisez avec des flashcards interactives et gérez votre parcours académique en toute simplicité.</p>
+            <button class="cta-main" onclick="window.location.href='auth/register.html'">
+                Commencer maintenant
+            </button>
+        </div>
+        <div class="hero-image">
+            <img src="https://illustrations.popsy.co/gray/studying.svg" alt="Étudiant ISIMM">
+        </div>
+    </section>
+    <section class="services" id="services">
+        <div class="section-title">
+            <h2>Nos Services</h2>
+        </div>
+        <div class="grid-container">
+            <div class="card">
+                <i class="fas fa-calculator card-icon"></i>
+                <h3>Calcul de Moyenne</h3>
+                <p>Gérez vos notes sur les 5 semestres et simulez vos résultats de licence.</p>
+                <a href="calcul.html" class="card-link">Essayer →</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-layer-group card-icon"></i>
+                <h3>Flashcards</h3>
+                <p>Apprenez plus vite grâce à notre système de cartes mémoires personnalisées.</p>
+                <a href="flashcards.html" class="card-link">Réviser →</a>
+            </div>
+            <div class="card">
+                <i class="fas fa-gamepad card-icon"></i>
+                <h3>Pause Étudiant</h3>
+                <p>Besoin d'un break ? Jouez à notre Memory Game pour vous détendre.</p>
+                <a href="memory.html" class="card-link">Jouer →</a>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2026 Nvalidi - Projet Étudiant ISIMM. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
