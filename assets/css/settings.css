@@ -1,0 +1,94 @@
+.settings-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    max-width: 900px;
+}
+
+.settings-card {
+    background-color: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.02);
+}
+
+.settings-card h3 {
+    font-size: 1.2rem;
+    color: var(--dark-text);
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.settings-card h3 i {
+    color: var(--primary-pink);
+}
+
+.settings-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.set-input {
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 2px solid var(--soft-grey);
+    outline: none;
+    background-color: var(--soft-grey);
+    font-family: 'Poppins', sans-serif;
+    transition: 0.3s;
+}
+
+.set-input:focus {
+    border-color: var(--accent-blue);
+    background-color: var(--white);
+}
+
+.save-btn {
+    background-color: var(--primary-pink);
+    color: var(--dark-text);
+    border: none;
+    padding: 14px 25px;
+    border-radius: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    align-self: flex-start;
+}
+
+.save-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(247, 203, 202, 0.4);
+}
+
+.save-btn.secondary {
+    background-color: var(--accent-blue);
+    color: var(--white);
+}
+
+@media (max-width: 768px) {
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+}

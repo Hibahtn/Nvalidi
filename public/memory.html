@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nvalidi - Jeu de Mémoire</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/dash.css">
+    <link rel="stylesheet" href="../assets/css/memory.css">
+</head>
+<body>
+    <nav class="sidebar">
+        <div class="logo">NVAL<span>IDI</span></div>
+        <ul class="sidebar-menu">
+            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="todo.html"><i class="fas fa-tasks"></i> To Do List</a></li>
+            <li><a href="flashcards.html"><i class="fas fa-layer-group"></i> Flash Cards</a></li>
+            <li><a href="memory.html" class="active"><i class="fas fa-gamepad"></i> Jeux Mémoire</a></li>
+            <li><a href="calcul.html"><i class="fas fa-calculator"></i> Calcul Moyenne</a></li>
+            <li><a href="settings.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+        </ul>
+        <a href="acceuil.html" class="logout-link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+    </nav>
+    <div class="main-content">
+        <header class="dash-header">
+             <div class="profile-btn" onclick="window.location.href='profile.html'"><span>Mon Profile</span><i class="fas fa-user-circle fa-lg"></i></div>
+        </header>
+        <div class="content-area">
+            <div class="welcome-banner" style="background: linear-gradient(135deg, var(--accent-blue) 0%, var(--primary-pink) 100%);">
+                <h1>Pause Étudiant 🎮</h1>
+                <p>Trouve toutes les paires pour vider ton esprit avant de reprendre les cours.</p>
+            </div>
+            <div class="game-info">
+                <p>Essais : <span>0</span></p>
+                <button class="reset-btn">Recommencer</button>
+            </div>
+            <div class="memory-grid">
+                <div class="memory-card">
+                    <div class="card-front"><i class="fas fa-code"></i></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="memory-card">
+                    <div class="card-front"><i class="fas fa-laptop"></i></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="memory-card">
+                    <div class="card-front"><i class="fas fa-code"></i></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="memory-card">
+                    <div class="card-front"><i class="fas fa-laptop"></i></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="memory-card">
+                    <div class="card-front"><i class="fas fa-database"></i></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="memory-card">
+                    <div class="card-front"><i class="fas fa-database"></i></div>
+                    <div class="card-back"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

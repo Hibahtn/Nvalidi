@@ -2,8 +2,9 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>Page d'inscription</title>
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nvalidi - Inscription</title>
+    <link rel="stylesheet" href="../assets/css/auth.css">
 </head>
 <body>
 <div class="container">
@@ -11,24 +12,28 @@
         <p class="title">SIGN UP</p>
         <form action="">
             <div class="form_group">
-                <label class="sub_title" for="name">Name</label>
-                <input placeholder="Enter your full name" class="form_style" type="text">
+                <label class="sub_title" for="name">Nom Complet</label>
+                <input placeholder="ahmed ben salah" id="name" class="form_style" type="text" required>
             </div>
             <div class="form_group">
-                <label class="sub_title" for="email">Email</label>
-                <input placeholder="Enter your email" id="email" class="form_style" type="email">
+                <label class="sub_title" for="email">Email étudiant</label>
+                <input placeholder="utilisateur@isimm.u-monastir.tn" id="email" class="form_style" type="email" required>
             </div>
             <div class="form_group">
-                <label class="sub_title" for="password">Password</label>
-                <input placeholder="Enter your password" id="password" class="form_style" type="password">
+                <label class="sub_title" for="password">Mot de passe</label>
+                <input placeholder="**************" id="password" class="form_style" type="password" required>
+            </div>
+            <div class="form_group">
+                <label class="sub_title" for="confirm-password">Confirmer le mot de passe</label>
+                <input placeholder="*************" id="confirm-password" class="form_style" type="password" required>
             </div>
             <div>
-                <button class="btn">SIGN UP</button>
-                <p>Have an Account? <a class="link" href="login.html">Login Here!</a></p>
-            </a></div>
+                <button class="btn">S'INSCRIRE</button>
+                <p>Déjà un compte ? <a class="link" href="login.html">Login Here!</a></p><br>
+                <a href="acceuil.html" class="link" style="font-size: 0.8rem; opacity: 0.7;">← Retour à l'accueil</a>
+            </div>
         </form>
     </div>
 </div>
-
 </body>
 </html>
