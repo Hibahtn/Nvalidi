@@ -62,9 +62,9 @@ function createCardElement(subj, ques, answ) {
             </div>
             <div class="flashcard-back">
                 <div class="card-controls">
-                    <i class="fas fa-edit"></i>
-                    <i class="fas fa-copy"></i>
-                    <i class="fas fa-trash"></i>
+                    <i class="fas fa-edit" title="Modifier"></i>
+                    <i class="fas fa-copy" title="Dupliquer"></i>
+                    <i class="fas fa-trash" title="Supprimer"></i>
                 </div>
                 <div class="card-back-content">
                     <p>${answ}</p>
