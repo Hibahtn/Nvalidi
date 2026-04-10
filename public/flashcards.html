@@ -28,7 +28,7 @@
         </header>
         <div class="content-area">
             <div class="welcome-banner">
-                <h1>Mes Flashcards 🗂️</h1>
+                <h1>Mes Flashcards <span><i class="fas fa-layer-group card-icon"></i></span></h1>
                 <p>Retourne les cartes pour tester tes connaissances avant les examens.</p>
             </div>
             <div class="cards-grid">
@@ -38,22 +38,16 @@
                             <h3>Développement Web</h3>
                             <p>Que signifie l'acronyme DOM ?</p>
                         </div>
-                        <div class="flashcard-back">
+                    <div class="flashcard-back">
+                        <div class="card-controls">
+                            <i class="fas fa-edit"></i>
+                            <i class="fas fa-copy"></i>
+                            <i class="fas fa-trash"></i>
+                        </div>
+                        <div class="card-back-content">
                             <p>Document Object Model</p>
-                            <small>Indispensable pour manipuler le HTML avec JS !</small>
                         </div>
                     </div>
-                </div>
-                <div class="flashcard">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">
-                            <h3>Architecture</h3>
-                            <p>Quelle est la fonction de l'unité ALU ?</p>
-                        </div>
-                        <div class="flashcard-back">
-                            <p>Arithmetic Logic Unit</p>
-                            <p>Elle effectue les calculs et les opérations logiques.</p>
-                        </div>
                     </div>
                 </div>
                 <div class="add-card-placeholder">
@@ -63,5 +57,31 @@
             </div>
         </div>
     </div>
+    <div id="cardModal" class="modal">
+        <div class="modal-content">
+            <h2>Nouvelle Flashcard <span><i class="fas fa-lightbulb"></i></span></h2>
+        
+            <div class="input-group">
+                <label>Matière</label>
+                <input type="text" id="subject" placeholder="ex: Développement Web...">
+            </div>
+
+            <div class="input-group">
+                <label>Question</label>
+                <textarea id="question" placeholder="Écris ta question ici..."></textarea>
+            </div>
+
+            <div class="input-group">
+                <label>Réponse</label>
+                <textarea id="answer" placeholder="Écris la réponse ici..."></textarea>
+            </div>
+
+            <div class="modal-buttons">
+                <button id="cancelBtn" class="btn-secondary">Annuler</button>
+                <button id="saveBtn" class="btn-primary">Créer la carte</button>
+            </div>
+        </div>
+    </div>
+    <script src="../assets/js/flashcards.js"></script>
 </body>
 </html>
