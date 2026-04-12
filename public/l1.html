@@ -23,49 +23,289 @@
     </nav>
     <div class="main-content">
         <header class="dash-header">
-           <div class="profile-btn" onclick="window.location.href='profile.html'"><span>Mon Profile</span><i class="fas fa-user-circle fa-lg"></i></div>
+            <div class="profile-btn" onclick="window.location.href='profile.html'"><span>Mon Profile</span><i class="fas fa-user-circle fa-lg"></i></div>
         </header>
         <div class="content-area">
             <a href="calcul.html" class="back-link">← Retour aux niveaux</a>
             <h2 class="page-title">Licence 1 Informatique</h2>
+
+            <!-- ── Semestre 1 ── -->
             <div class="table-container">
                 <h3 class="semester-title">Semestre 1</h3>
                 <table>
                     <thead>
                         <tr>
+                            <th>Module</th>
                             <th>Matière</th>
-                            <th>Note DS</th>
-                            <th>Note Examen</th>
                             <th>Coefficient</th>
+                            <th>TD/TP</th>
+                            <th>DS</th>
+                            <th>Examen</th>
+                            <th>Moyenne</th>
+                            <th>Crédit</th>
+                            <th>Moyenne Module</th>
+                            <th>Crédit Module</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Analyse 1</td><td><input type="number" class="input-note"></td><td><input type="number" class="input-note"></td><td>1.5</td></tr>
-                        <tr><td>Algorithmique 1</td><td><input type="number" class="input-note"></td><td><input type="number" class="input-note"></td><td>2.0</td></tr>
-                        <tr><td>Systèmes Logiques</td><td><input type="number" class="input-note"></td><td><input type="number" class="input-note"></td><td>1.5</td></tr>
+                        <!-- Logique et multimédia -->
+                        <tr>
+                            <td rowspan="2">Logique et multimédia</td>
+                            <td>Logique formelle</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p1_lf_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_lf_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_lf_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p1_m_lf">0</td>
+                            <td id="p1_cr_lf">0</td>
+                            <td rowspan="2" id="p1_m_lm">0</td>
+                            <td rowspan="2" id="p1_cr_lm">0</td>
+                        </tr>
+                        <tr>
+                            <td>Technologies multimédias</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p1_tm_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_tm_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_tm_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p1_m_tm">0</td>
+                            <td id="p1_cr_tm">0</td>
+                        </tr>
+                        <!-- Mathématiques 1 -->
+                        <tr>
+                            <td rowspan="2">Mathématiques 1</td>
+                            <td>Algèbre 1</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p1_alg1_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_alg1_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_alg1_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p1_m_alg1">0</td>
+                            <td id="p1_cr_alg1">0</td>
+                            <td rowspan="2" id="p1_m_math1">0</td>
+                            <td rowspan="2" id="p1_cr_math1">0</td>
+                        </tr>
+                        <tr>
+                            <td>Analyse 1</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p1_ana1_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_ana1_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_ana1_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p1_m_ana1">0</td>
+                            <td id="p1_cr_ana1">0</td>
+                        </tr>
+                        <!-- Unité transversale -->
+                        <tr>
+                            <td rowspan="2">Unité transversale</td>
+                            <td>Anglais 1</td>
+                            <td>1</td>
+                            <td></td>
+                            <td><input type="number" class="input-note" id="p1_ang1_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_ang1_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p1_m_ang1">0</td>
+                            <td id="p1_cr_ang1">0</td>
+                            <td rowspan="2" id="p1_m_trans1">0</td>
+                            <td rowspan="2" id="p1_cr_trans1">0</td>
+                        </tr>
+                        <tr>
+                            <td>Techniques de communication 1</td>
+                            <td>1</td>
+                            <td></td>
+                            <td><input type="number" class="input-note" id="p1_tc1_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_tc1_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p1_m_tc1">0</td>
+                            <td id="p1_cr_tc1">0</td>
+                        </tr>
+                        <!-- Algorithmique et programmation 1 -->
+                        <tr>
+                            <td rowspan="2">Algorithmique et programmation 1</td>
+                            <td>Algorithmique et structure de données</td>
+                            <td>2</td>
+                            <td><input type="number" class="input-note" id="p1_algo1_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_algo1_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_algo1_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p1_m_algo1">0</td>
+                            <td id="p1_cr_algo1">0</td>
+                            <td rowspan="2" id="p1_m_ap1">0</td>
+                            <td rowspan="2" id="p1_cr_ap1">0</td>
+                        </tr>
+                        <tr>
+                            <td>Atelier programmation 1</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p1_atp1_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_atp1_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_atp1_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p1_m_atp1">0</td>
+                            <td id="p1_cr_atp1">0</td>
+                        </tr>
+                        <!-- Systèmes d'exploitation et architecture -->
+                        <tr>
+                            <td rowspan="2">Systèmes d'exploitation et architecture</td>
+                            <td>Système d'exploitation 1</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p1_se1_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_se1_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_se1_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p1_m_se1">0</td>
+                            <td id="p1_cr_se1">0</td>
+                            <td rowspan="2" id="p1_m_sea">0</td>
+                            <td rowspan="2" id="p1_cr_sea">0</td>
+                        </tr>
+                        <tr>
+                            <td>Systèmes logiques et architecture des ordinateurs</td>
+                            <td>2</td>
+                            <td><input type="number" class="input-note" id="p1_arch_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_arch_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p1_arch_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p1_m_arch">0</td>
+                            <td id="p1_cr_arch">0</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
+
+            <!-- ── Semestre 2 ── -->
             <div class="table-container">
                 <h3 class="semester-title">Semestre 2</h3>
                 <table>
                     <thead>
                         <tr>
+                            <th>Module</th>
                             <th>Matière</th>
-                            <th>Note DS</th>
-                            <th>Note Examen</th>
                             <th>Coefficient</th>
+                            <th>TD/TP</th>
+                            <th>DS</th>
+                            <th>Examen</th>
+                            <th>Moyenne</th>
+                            <th>Crédit</th>
+                            <th>Moyenne Module</th>
+                            <th>Crédit Module</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Algorithmique 2</td><td><input type="number" class="input-note"></td><td><input type="number" class="input-note"></td><td>2.0</td></tr>
-                        <tr><td>Structure de Données</td><td><input type="number" class="input-note"></td><td><input type="number" class="input-note"></td><td>1.5</td></tr>
+                        <!-- Bases de données -->
+                        <tr>
+                            <td>Bases de données</td>
+                            <td>Fondements des bases de données</td>
+                            <td>2</td>
+                            <td><input type="number" class="input-note" id="p2_fbd_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_fbd_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_fbd_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_fbd">0</td>
+                            <td id="p2_cr_fbd">0</td>
+                            <td id="p2_m_bdd">0</td>
+                            <td id="p2_cr_bdd">0</td>
+                        </tr>
+                        <!-- Mathématiques 2 -->
+                        <tr>
+                            <td rowspan="2">Mathématiques 2</td>
+                            <td>Algèbre 2</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p2_alg2_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_alg2_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_alg2_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_alg2">0</td>
+                            <td id="p2_cr_alg2">0</td>
+                            <td rowspan="2" id="p2_m_math2">0</td>
+                            <td rowspan="2" id="p2_cr_math2">0</td>
+                        </tr>
+                        <tr>
+                            <td>Analyse 2</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p2_ana2_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_ana2_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_ana2_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_ana2">0</td>
+                            <td id="p2_cr_ana2">0</td>
+                        </tr>
+                        <!-- Algorithmique et programmation 2 -->
+                        <tr>
+                            <td rowspan="3">Algorithmique et programmation 2</td>
+                            <td>Algorithmique, structure de données et complexité</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p2_algo2_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_algo2_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_algo2_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_algo2">0</td>
+                            <td id="p2_cr_algo2">0</td>
+                            <td rowspan="3" id="p2_m_ap2">0</td>
+                            <td rowspan="3" id="p2_cr_ap2">0</td>
+                        </tr>
+                        <tr>
+                            <td>Atelier de programmation 2</td>
+                            <td>1</td>
+                            <td><input type="number" class="input-note" id="p2_atp2_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_atp2_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_atp2_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_atp2">0</td>
+                            <td id="p2_cr_atp2">0</td>
+                        </tr>
+                        <tr>
+                            <td>Programmation Python</td>
+                            <td>1</td>
+                            <td><input type="number" class="input-note" id="p2_py_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_py_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_py_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_py">0</td>
+                            <td id="p2_cr_py">0</td>
+                        </tr>
+                        <!-- Systèmes d'exploitation et réseaux -->
+                        <tr>
+                            <td rowspan="2">Systèmes d'exploitation et réseaux</td>
+                            <td>Système d'exploitation 2</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p2_se2_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_se2_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_se2_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_se2">0</td>
+                            <td id="p2_cr_se2">0</td>
+                            <td rowspan="2" id="p2_m_ser">0</td>
+                            <td rowspan="2" id="p2_cr_ser">0</td>
+                        </tr>
+                        <tr>
+                            <td>Fondements des réseaux</td>
+                            <td>2</td>
+                            <td><input type="number" class="input-note" id="p2_res_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_res_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_res_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_res">0</td>
+                            <td id="p2_cr_res">0</td>
+                        </tr>
+                        <!-- Unité transversale -->
+                        <tr>
+                            <td rowspan="3">Unité transversale</td>
+                            <td>Anglais 2</td>
+                            <td>1</td>
+                            <td></td>
+                            <td><input type="number" class="input-note" id="p2_ang2_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_ang2_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_ang2">0</td>
+                            <td id="p2_cr_ang2">0</td>
+                            <td rowspan="3" id="p2_m_trans2">0</td>
+                            <td rowspan="3" id="p2_cr_trans2">0</td>
+                        </tr>
+                        <tr>
+                            <td>Techniques de communication 2</td>
+                            <td>1</td>
+                            <td></td>
+                            <td><input type="number" class="input-note" id="p2_tc2_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_tc2_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_tc2">0</td>
+                            <td id="p2_cr_tc2">0</td>
+                        </tr>
+                        <tr>
+                            <td>Culture et compétences numériques</td>
+                            <td>1</td>
+                            <td></td>
+                            <td><input type="number" class="input-note" id="p2_ccn_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p2_ccn_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p2_m_ccn">0</td>
+                            <td id="p2_cr_ccn">0</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
+
             <button class="btn-calcul">Calculer Moyenne L1</button>
         </div>
     </div>
 </body>
 </html>
-fonts.googleapis.com
