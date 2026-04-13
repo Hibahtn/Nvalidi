@@ -18,3 +18,19 @@ CREATE TABLE IF NOT EXISTS flashcards (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+
+
+
+CREATE TABLE IF NOT EXISTS notes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    niveau VARCHAR(10),   -- L1 / L2 / L3
+    matiere VARCHAR(100),
+    td FLOAT,
+    ds FLOAT,
+    examen FLOAT,
+    moyenne FLOAT,
+    credits INT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);

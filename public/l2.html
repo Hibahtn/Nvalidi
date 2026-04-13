@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="../assets/css/tables.css">
 </head>
 <body>
+    <script src="../assets/js/grades_engine.js"></script>
+    <script src="../assets/js/l2_grades.js"></script>
     <nav class="sidebar">
         <div class="logo">NVAL<span>IDI</span></div>
         <ul class="sidebar-menu">
@@ -31,7 +33,7 @@
 
             <!-- ── Semestre 1 ── -->
             <div class="table-container">
-                <h3 class="semester-title">Semestre 1</h3>
+                <h3 class="semester-title">Semestre 3</h3>
                 <table>
                     <thead>
                         <tr>
@@ -175,25 +177,167 @@
                 </table>
             </div>
 
-            <!-- ── Semestre 2 ── -->
+            <!-- ── Semestre 4 ── -->
             <div class="table-container">
-                <h3 class="semester-title">Semestre 2</h3>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Matière</th>
-                            <th>Note DS</th>
-                            <th>Note Examen</th>
-                            <th>Coefficient</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr><td>Programmation Web</td><td><input type="number" class="input-note"></td><td><input type="number" class="input-note"></td><td>2.0</td></tr>
-                        <tr><td>Intelligence artificielle</td><td><input type="number" class="input-note"></td><td><input type="number" class="input-note"></td><td>1.5</td></tr>
-                    </tbody>
-                </table>
-            </div>
-
+    <h3 class="semester-title">Semestre 4</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Module</th>
+                <th>Matière</th>
+                <th>Coefficient</th>
+                <th>TD/TP</th>
+                <th>DS</th>
+                <th>Examen</th>
+                <th>Moyenne</th>
+                <th>Crédit</th>
+                <th>Moyenne Module</th>
+                <th>Crédit Module</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Bases de données -->
+            <tr>
+                <td rowspan="2">Bases de données</td>
+                <td>Administration des bases de données</td>
+                <td>1</td>
+                <td><input type="number" class="input-note" id="p4_abd_td" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_abd_ds" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_abd_ex" min="0" max="20" step="0.25"></td>
+                <td id="p4_m_abd">0</td>
+                <td id="p4_cr_abd">0</td>
+                <td rowspan="2" id="p4_m_bdd">0</td>
+                <td rowspan="2" id="p4_cr_bdd">0</td>
+            </tr>
+            <tr>
+                <td>Entrepôts de données</td>
+                <td>1</td>
+                <td><input type="number" class="input-note" id="p4_edd_td" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_edd_ds" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_edd_ex" min="0" max="20" step="0.25"></td>
+                <td id="p4_m_edd">0</td>
+                <td id="p4_cr_edd">0</td>
+            </tr>
+            <!-- Compilation & tests -->
+            <tr>
+                <td rowspan="2">Compilation &amp; tests</td>
+                <td>Tests de logiciels (certification ISTQB)</td>
+                <td>1</td>
+                <td><input type="number" class="input-note" id="p4_tl_td" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_tl_ds" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_tl_ex" min="0" max="20" step="0.25"></td>
+                <td id="p4_m_tl">0</td>
+                <td id="p4_cr_tl">0</td>
+                <td rowspan="2" id="p4_m_comp">0</td>
+                <td rowspan="2" id="p4_cr_comp">0</td>
+            </tr>
+            <tr>
+                <td>Techniques de compilation</td>
+                <td>1.5</td>
+                <td><input type="number" class="input-note" id="p4_tc_td" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_tc_ds" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_tc_ex" min="0" max="20" step="0.25"></td>
+                <td id="p4_m_tc">0</td>
+                <td id="p4_cr_tc">0</td>
+            </tr>
+            <!-- Indexation et Web -->
+            <tr>
+                <td rowspan="2">Indexation et Web</td>
+                <td>Technologies et programmation web</td>
+                <td>1.5</td>
+                <td><input type="number" class="input-note" id="p4_web_td" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_web_ds" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_web_ex" min="0" max="20" step="0.25"></td>
+                <td id="p4_m_web">0</td>
+                <td id="p4_cr_web">0</td>
+                <td rowspan="2" id="p4_m_iw">0</td>
+                <td rowspan="2" id="p4_cr_iw">0</td>
+            </tr>
+            <tr>
+                <td>Techniques d'indexation</td>
+                <td>1</td>
+                <td><input type="number" class="input-note" id="p4_idx_td" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_idx_ds" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_idx_ex" min="0" max="20" step="0.25"></td>
+                <td id="p4_m_idx">0</td>
+                <td id="p4_cr_idx">0</td>
+            </tr>
+            <!-- Intelligence artificielle -->
+            <tr>
+                <td>Intelligence artificielle</td>
+                <td>Fondements de l'intelligence artificielle (programmation IA)</td>
+                <td>2</td>
+                <td><input type="number" class="input-note" id="p4_ia_td" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_ia_ds" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_ia_ex" min="0" max="20" step="0.25"></td>
+                <td id="p4_m_ia">0</td>
+                <td id="p4_cr_ia">0</td>
+                <td id="p4_m_iai">0</td>
+                <td id="p4_cr_iai">0</td>
+            </tr>
+            <!-- Langue et éthique -->
+            <tr>
+                <td rowspan="3">Langue et éthique</td>
+                <td>Projet fédéré (méthode Agile)</td>
+                <td>1</td>
+                <td><input type="number" class="input-note" id="p4_agile_td" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_agile_ds" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_agile_ex" min="0" max="20" step="0.25"></td>
+                <td id="p4_m_agile">0</td>
+                <td id="p4_cr_agile">0</td>
+                <td rowspan="3" id="p4_m_le">0</td>
+                <td rowspan="3" id="p4_cr_le">0</td>
+            </tr>
+            <tr>
+                <td>Anglais 4</td>
+                <td>1</td>
+                <td></td>
+                <td><input type="number" class="input-note" id="p4_ang4_ds" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_ang4_ex" min="0" max="20" step="0.25"></td>
+                <td id="p4_m_ang4">0</td>
+                <td id="p4_cr_ang4">0</td>
+            </tr>
+            <tr>
+                <td>Droit d'informatique, protection des données et éthique</td>
+                <td>1</td>
+                <td></td>
+                <td><input type="number" class="input-note" id="p4_droit_ds" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_droit_ex" min="0" max="20" step="0.25"></td>
+                <td id="p4_m_droit">0</td>
+                <td id="p4_cr_droit">0</td>
+            </tr>
+            <!-- Unité Optionnelle -->
+            <tr>
+                <td rowspan="2">Unité Optionnelle</td>
+                <td>Business Intelligence and Data Analytics</td>
+                <td>1.5</td>
+                <td><input type="number" class="input-note" id="p4_bi_td" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_bi_ds" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_bi_ex" min="0" max="20" step="0.25"></td>
+                <td id="p4_m_bi">0</td>
+                <td id="p4_cr_bi">0</td>
+                <td rowspan="2" id="p4_m_uo">0</td>
+                <td rowspan="2" id="p4_cr_uo">0</td>
+            </tr>
+            <tr>
+                <td>Digital Business Transformation</td>
+                <td>1.5</td>
+                <td><input type="number" class="input-note" id="p4_dbt_td" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_dbt_ds" min="0" max="20" step="0.25"></td>
+                <td><input type="number" class="input-note" id="p4_dbt_ex" min="0" max="20" step="0.25"></td>
+                <td id="p4_m_dbt">0</td>
+                <td id="p4_cr_dbt">0</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+            <div id="resultats" style="
+            margin-top:20px;
+            padding:20px;
+            border-radius:12px;
+            background:#f5f6fa;
+            font-family:Poppins;
+            "></div>
             <button class="btn-calcul">Calculer Moyenne L2</button>
         </div>
     </div>
