@@ -43,6 +43,14 @@
                 <button id="resetFilters">
                     <i class="fas fa-rotate-left"></i> Tout afficher
                 </button>
+                <button id="selectModeBtn">
+                    <i class="fas fa-check-square"></i> Sélectionner
+                </button>
+            </div>
+            <div class="selection-bar" id="selectionBar" style="display:none;">
+                <button id="selectAllBtn"><i class="fas fa-check-double"></i> Tout sélectionner</button>
+                <button id="deleteSelectedBtn" class="btn-danger"><i class="fas fa-trash"></i> Supprimer (<span id="selectedCount">0</span>)</button>
+                <button id="cancelSelectBtn"><i class="fas fa-times"></i> Annuler</button>
             </div>
             <div class="cards-grid">
                 <div class="add-card-placeholder">

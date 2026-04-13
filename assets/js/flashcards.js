@@ -82,6 +82,90 @@ resetFilters.addEventListener('click', () => {
 });
 // ---- FIN FILTRES ----
 
+// ---- SELECTION MULTIPLE ----
+const selectModeBtn = document.getElementById('selectModeBtn');
+const selectionBar = document.getElementById('selectionBar');
+const selectAllBtn = document.getElementById('selectAllBtn');
+const deleteSelectedBtn = document.getElementById('deleteSelectedBtn');
+const cancelSelectBtn = document.getElementById('cancelSelectBtn');
+const selectedCount = document.getElementById('selectedCount');
+
+let selectionMode = false;
+
+function enterSelectionMode() {
+    selectionMode = true;
+    selectModeBtn.classList.add('active');
+    selectionBar.style.display = 'flex';
+    grid.classList.add('selection-mode');
+    updateSelectedCount();
+}
+
+function exitSelectionMode() {
+    selectionMode = false;
+    selectModeBtn.classList.remove('active');
+    selectionBar.style.display = 'none';
+    grid.classList.remove('selection-mode');
+    grid.querySelectorAll('.flashcard').forEach(card => {
+        card.classList.remove('selected');
+        const cb = card.querySelector('.card-checkbox');
+        if (cb) cb.checked = false;
+    });
+    updateSelectedCount();
+}
+
+function updateSelectedCount() {
+    const count = grid.querySelectorAll('.flashcard.selected').length;
+    selectedCount.textContent = count;
+}
+
+selectModeBtn.addEventListener('click', () => {
+    if (selectionMode) {
+        exitSelectionMode();
+    } else {
+        enterSelectionMode();
+    }
+});
+
+selectAllBtn.addEventListener('click', () => {
+    const cartes = grid.querySelectorAll('.flashcard');
+    const allSelected = [...cartes].every(c => c.classList.contains('selected'));
+    cartes.forEach(card => {
+        const cb = card.querySelector('.card-checkbox');
+        if (allSelected) {
+            card.classList.remove('selected');
+            if (cb) cb.checked = false;
+        } else {
+            card.classList.add('selected');
+            if (cb) cb.checked = true;
+        }
+    });
+    updateSelectedCount();
+});
+
+deleteSelectedBtn.addEventListener('click', async () => {
+    const selected = grid.querySelectorAll('.flashcard.selected');
+    if (selected.length === 0) return;
+
+    if (!confirm(`Supprimer ${selected.length} carte(s) ?`)) return;
+
+    for (const card of selected) {
+        await fetch(`${API}?action=delete`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ id: card.dataset.id })
+        });
+        card.remove();
+    }
+
+    updateMatiereFilter();
+    exitSelectionMode();
+});
+
+cancelSelectBtn.addEventListener('click', () => {
+    exitSelectionMode();
+});
+// ---- FIN SELECTION MULTIPLE ----
+
 addBtn.onclick = () => modal.style.display = "block";
 cancelBtn.onclick = () => {
     modal.style.display = "none";
@@ -92,6 +176,20 @@ cancelBtn.onclick = () => {
 grid.addEventListener('click', (e) => {
     const card = e.target.closest('.flashcard');
     if (!card) return;
+
+    // Mode sélection
+    if (selectionMode) {
+        const cb = card.querySelector('.card-checkbox');
+        if (e.target.classList.contains('card-checkbox')) {
+            card.classList.toggle('selected', cb.checked);
+            updateSelectedCount();
+            return;
+        }
+        cb.checked = !cb.checked;
+        card.classList.toggle('selected', cb.checked);
+        updateSelectedCount();
+        return;
+    }
 
     if (e.target.classList.contains('fa-trash')) {
         e.stopPropagation();
@@ -128,8 +226,9 @@ function createCardElement(subj, ques, answ, id) {
     const card = document.createElement('div');
     card.className = 'flashcard';
     card.dataset.id = id;
-    card.dataset.matiere = subj; // ← clé de la correction
+    card.dataset.matiere = subj;
     card.innerHTML = `
+        <input type="checkbox" class="card-checkbox">
         <div class="flashcard-inner">
             <div class="flashcard-front">
                 <h3>${subj}</h3>
