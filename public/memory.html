@@ -24,7 +24,9 @@
     </nav>
     <div class="main-content">
         <header class="dash-header">
-             <div class="profile-btn" onclick="window.location.href='profile.html'"><span>Mon Profile</span><i class="fas fa-user-circle fa-lg"></i></div>
+             <div class="profile-btn" onclick="window.location.href='profile.html'">
+                 <span>Mon Profil</span><i class="fas fa-user-circle fa-lg"></i>
+             </div>
         </header>
         <div class="content-area">
             <div class="welcome-banner" style="background: linear-gradient(135deg, var(--accent-blue) 0%, var(--primary-pink) 100%);">
@@ -32,36 +34,62 @@
                 <p>Trouve toutes les paires pour vider ton esprit avant de reprendre les cours.</p>
             </div>
             <div class="game-info">
-                <p>Essais : <span>0</span></p>
-                <button class="reset-btn">Recommencer</button>
+                <p>Essais : <span id="tries-count">0</span></p>
+                <button class="reset-btn" id="resetBtn">Recommencer</button>
             </div>
             <div class="memory-grid">
-                <div class="memory-card">
-                    <div class="card-front"><i class="fas fa-code"></i></div>
+                <div class="memory-card" data-img="1">
+                    <div class="card-front"><img src="../assets/img/image1.png" alt="Card 1"></div>
                     <div class="card-back"></div>
                 </div>
-                <div class="memory-card">
-                    <div class="card-front"><i class="fas fa-laptop"></i></div>
+                <div class="memory-card" data-img="1">
+                    <div class="card-front"><img src="../assets/img/image1.png" alt="Card 1"></div>
                     <div class="card-back"></div>
                 </div>
-                <div class="memory-card">
-                    <div class="card-front"><i class="fas fa-code"></i></div>
+                <div class="memory-card" data-img="2">
+                    <div class="card-front"><img src="../assets/img/image2.png" alt="Card 2"></div>
                     <div class="card-back"></div>
                 </div>
-                <div class="memory-card">
-                    <div class="card-front"><i class="fas fa-laptop"></i></div>
+                <div class="memory-card" data-img="2">
+                    <div class="card-front"><img src="../assets/img/image2.png" alt="Card 2"></div>
                     <div class="card-back"></div>
                 </div>
-                <div class="memory-card">
-                    <div class="card-front"><i class="fas fa-database"></i></div>
+                <div class="memory-card" data-img="3">
+                    <div class="card-front"><img src="../assets/img/image3.png" alt="Card 3"></div>
                     <div class="card-back"></div>
                 </div>
-                <div class="memory-card">
-                    <div class="card-front"><i class="fas fa-database"></i></div>
+                <div class="memory-card" data-img="3">
+                    <div class="card-front"><img src="../assets/img/image3.png" alt="Card 3"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="memory-card" data-img="4">
+                    <div class="card-front"><img src="../assets/img/image4.png" alt="Card 4"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="memory-card" data-img="4">
+                    <div class="card-front"><img src="../assets/img/image4.png" alt="Card 4"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="memory-card" data-img="5">
+                    <div class="card-front"><img src="../assets/img/image5.png" alt="Card 5"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="memory-card" data-img="5">
+                    <div class="card-front"><img src="../assets/img/image5.png" alt="Card 5"></div>
+                    <div class="card-back"></div>
+                </div>
+
+                <div class="memory-card" data-img="6">
+                    <div class="card-front"><img src="../assets/img/image6.png" alt="Card 6"></div>
+                    <div class="card-back"></div>
+                </div>
+                <div class="memory-card" data-img="6">
+                    <div class="card-front"><img src="../assets/img/image6.png" alt="Card 6"></div>
                     <div class="card-back"></div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="../assets/js/memory.js"></script>
 </body>
 </html>
