@@ -60,3 +60,28 @@
     color: #ff7675;
     cursor: pointer;
 }
+
+.logo a{
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo a:visited{
+    color: inherit;
+}
+
+.logo a:hover {
+    letter-spacing: 2px;
+    transform: scale(1.05);
+}
+
+.logo span {
+    color: var(--primary-pink);
+    transition: 0.3s;
+}
+
+.logo a:hover span {
+    filter: brightness(0.9);
+}
