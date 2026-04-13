@@ -9,9 +9,11 @@
     <link rel="stylesheet" href="../assets/css/tables.css">
 </head>
 <body>
+    <script src="../assets/js/grades_engine.js"></script>
+    <script src="../assets/js/l3_grades.js"></script>
     <nav class="sidebar">
         <div class="logo">NVAL<span>IDI</span></div>
-         <ul class="sidebar-menu">
+        <ul class="sidebar-menu">
             <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
             <li><a href="todo.html"><i class="fas fa-tasks"></i> To Do List</a></li>
             <li><a href="flashcards.html"><i class="fas fa-layer-group"></i> Flash Cards</a></li>
@@ -20,35 +22,214 @@
             <li><a href="settings.html"><i class="fas fa-cog"></i> Paramètres</a></li>
         </ul>
         <a href="acceuil.html" class="logout-link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
-        </nav>
+    </nav>
     <div class="main-content">
         <header class="dash-header">
-           <div class="profile-btn" onclick="window.location.href='profile.html'"><span>Mon Profile</span><i class="fas fa-user-circle fa-lg"></i></div>
+            <div class="profile-btn" onclick="window.location.href='profile.html'"><span>Mon Profile</span><i class="fas fa-user-circle fa-lg"></i></div>
         </header>
         <div class="content-area">
             <a href="calcul.html" class="back-link">← Retour aux niveaux</a>
             <h2 class="page-title">Licence 3 Informatique</h2>
+
+            <!-- ── Semestre 5 ── -->
             <div class="table-container">
-                <h3 class="semester-title">Semestre 1</h3>
+                <h3 class="semester-title">Semestre 5</h3>
                 <table>
                     <thead>
                         <tr>
+                            <th>Module</th>
                             <th>Matière</th>
-                            <th>Note DS</th>
-                            <th>Note Examen</th>
                             <th>Coefficient</th>
+                            <th>TD/TP</th>
+                            <th>DS</th>
+                            <th>Examen</th>
+                            <th>Moyenne</th>
+                            <th>Crédit</th>
+                            <th>Moyenne Module</th>
+                            <th>Crédit Module</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr><td>Génie Logiciel</td><td><input type="number" class="input-note"></td><td><input type="number" class="input-note"></td><td>2.0</td></tr>
-                        <tr><td>Réseaux Avancés</td><td><input type="number" class="input-note"></td><td><input type="number" class="input-note"></td><td>1.5</td></tr>
-                        <tr><td>Sécurité Informatique</td><td><input type="number" class="input-note"></td><td><input type="number" class="input-note"></td><td>1.5</td></tr>
+                        <!-- Développement d'applications -->
+                        <tr>
+                            <td rowspan="2">Développement d'applications</td>
+                            <td>Développement d'applications réparties</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p5_dar_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_dar_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_dar_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p5_m_dar">0</td>
+                            <td id="p5_cr_dar">0</td>
+                            <td rowspan="2" id="p5_m_dev">0</td>
+                            <td rowspan="2" id="p5_cr_dev">0</td>
+                        </tr>
+                        <tr>
+                            <td>Développement Mobile</td>
+                            <td>1</td>
+                            <td><input type="number" class="input-note" id="p5_mob_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_mob_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_mob_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p5_m_mob">0</td>
+                            <td id="p5_cr_mob">0</td>
+                        </tr>
+                        <!-- Machine Learning et sécurité -->
+                        <tr>
+                            <td rowspan="2">Machine Learning et sécurité</td>
+                            <td>Machine Learning</td>
+                            <td>1</td>
+                            <td><input type="number" class="input-note" id="p5_ml_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_ml_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_ml_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p5_m_ml">0</td>
+                            <td id="p5_cr_ml">0</td>
+                            <td rowspan="2" id="p5_m_mls">0</td>
+                            <td rowspan="2" id="p5_cr_mls">0</td>
+                        </tr>
+                        <tr>
+                            <td>Sécurité informatique</td>
+                            <td>1</td>
+                            <td><input type="number" class="input-note" id="p5_sec_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_sec_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_sec_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p5_m_sec">0</td>
+                            <td id="p5_cr_sec">0</td>
+                        </tr>
+                        <!-- Architecture SOA et services Web -->
+                        <tr>
+                            <td>Architecture SOA et services Web</td>
+                            <td>Architecture SOA et services Web</td>
+                            <td>2</td>
+                            <td><input type="number" class="input-note" id="p5_soa_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_soa_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_soa_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p5_m_soa">0</td>
+                            <td id="p5_cr_soa">0</td>
+                            <td id="p5_m_soam">0</td>
+                            <td id="p5_cr_soam">0</td>
+                        </tr>
+                        <!-- Cloud & Big Data -->
+                        <tr>
+                            <td rowspan="2">Cloud &amp; Big Data</td>
+                            <td>Virtualisation et Cloud</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p5_cloud_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_cloud_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_cloud_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p5_m_cloud">0</td>
+                            <td id="p5_cr_cloud">0</td>
+                            <td rowspan="2" id="p5_m_cbd">0</td>
+                            <td rowspan="2" id="p5_cr_cbd">0</td>
+                        </tr>
+                        <tr>
+                            <td>Framework et techniques Big Data</td>
+                            <td>1</td>
+                            <td><input type="number" class="input-note" id="p5_bd_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_bd_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_bd_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p5_m_bd">0</td>
+                            <td id="p5_cr_bd">0</td>
+                        </tr>
+                        <!-- Langue et Entreprenariat -->
+                        <tr>
+                            <td rowspan="3">Langue et Entreprenariat</td>
+                            <td>Préparation à l'environnement professionnel</td>
+                            <td>1</td>
+                            <td><input type="number" class="input-note" id="p5_prep_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_prep_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_prep_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p5_m_prep">0</td>
+                            <td id="p5_cr_prep">0</td>
+                            <td rowspan="3" id="p5_m_le">0</td>
+                            <td rowspan="3" id="p5_cr_le">0</td>
+                        </tr>
+                        <tr>
+                            <td>Entreprenariat</td>
+                            <td>1</td>
+                            <td></td>
+                            <td><input type="number" class="input-note" id="p5_entr_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_entr_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p5_m_entr">0</td>
+                            <td id="p5_cr_entr">0</td>
+                        </tr>
+                        <tr>
+                            <td>Anglais 5</td>
+                            <td>1</td>
+                            <td></td>
+                            <td><input type="number" class="input-note" id="p5_ang5_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_ang5_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p5_m_ang5">0</td>
+                            <td id="p5_cr_ang5">0</td>
+                        </tr>
+                        <!-- Unité Optionnelle -->
+                        <tr>
+                            <td rowspan="2">Unité Optionnelle</td>
+                            <td>Entreprise System Architecture</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p5_esa_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_esa_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_esa_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p5_m_esa">0</td>
+                            <td id="p5_cr_esa">0</td>
+                            <td rowspan="2" id="p5_m_uo">0</td>
+                            <td rowspan="2" id="p5_cr_uo">0</td>
+                        </tr>
+                        <tr>
+                            <td>Business Process Engineering</td>
+                            <td>1.5</td>
+                            <td><input type="number" class="input-note" id="p5_bpe_td" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_bpe_ds" min="0" max="20" step="0.25"></td>
+                            <td><input type="number" class="input-note" id="p5_bpe_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p5_m_bpe">0</td>
+                            <td id="p5_cr_bpe">0</td>
+                        </tr>
                     </tbody>
                 </table>
             </div>
+
+            <!-- ── Semestre 6 ── -->
+            <div class="table-container">
+                <h3 class="semester-title">Semestre 6</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Module</th>
+                            <th>Matière</th>
+                            <th>Coefficient</th>
+                            <th>TD/TP</th>
+                            <th>DS</th>
+                            <th>Examen</th>
+                            <th>Moyenne</th>
+                            <th>Crédit</th>
+                            <th>Moyenne Module</th>
+                            <th>Crédit Module</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Projet de fin d'études -->
+                        <tr>
+                            <td>Projet de fin d'études</td>
+                            <td>PFE</td>
+                            <td>15</td>
+                            <td></td>
+                            <td></td>
+                            <td><input type="number" class="input-note" id="p6_pfe_ex" min="0" max="20" step="0.25"></td>
+                            <td id="p6_m_pfe">0</td>
+                            <td id="p6_cr_pfe">0</td>
+                            <td id="p6_m_pfe_mod">0</td>
+                            <td id="p6_cr_pfe_mod">0</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+             <div id="resultats" style="
+            margin-top:20px;
+            padding:20px;
+            border-radius:12px;
+            background:#f5f6fa;
+            font-family:Poppins;
+            "></div>
             <button class="btn-calcul">Calculer Moyenne L3</button>
         </div>
     </div>
 </body>
 </html>
-fonts.googleapis.com

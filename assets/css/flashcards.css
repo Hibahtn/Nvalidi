@@ -194,3 +194,171 @@
     flex-direction: column;
     align-items: center;
 }
+
+.logo a{
+    text-decoration: none;
+    color: inherit;
+    display: inline-block;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.logo a:visited{
+    color: inherit;
+}
+
+.logo a:hover {
+    letter-spacing: 2px;
+    transform: scale(1.05);
+}
+
+.logo span {
+    color: var(--primary-pink);
+    transition: 0.3s;
+}
+
+.logo a:hover span {
+    filter: brightness(0.9);
+}
+
+.filters-bar {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filters-bar select {
+    padding: 10px 15px;
+    border: 1px solid var(--accent-blue);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--dark-text);
+    background-color: var(--white);
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}
+
+.filters-bar select:focus {
+    border-color: var(--primary-pink);
+}
+
+#resetFilters {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    background-color: var(--accent-blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#resetFilters:hover {
+    background-color: var(--primary-pink);
+    color: var(--dark-text);
+}
+
+/* --- Mode Sélection --- */
+#selectModeBtn {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    background-color: var(--white);
+    color: var(--dark-text);
+    border: 1px solid var(--accent-blue);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#selectModeBtn:hover {
+    background-color: var(--primary-pink);
+    border-color: var(--primary-pink);
+    color: var(--dark-text);
+}
+
+#selectModeBtn.active {
+    background-color: var(--primary-pink);
+    border-color: var(--primary-pink);
+}
+
+.selection-bar {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.selection-bar button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#selectAllBtn {
+    background-color: var(--accent-blue);
+    color: var(--white);
+}
+
+#selectAllBtn:hover {
+    background-color: var(--primary-pink);
+    color: var(--dark-text);
+}
+
+.btn-danger {
+    background-color: #e74c3c;
+    color: var(--white);
+}
+
+.btn-danger:hover {
+    background-color: #c0392b;
+}
+
+#cancelSelectBtn {
+    background-color: #eee;
+    color: var(--dark-text);
+}
+
+#cancelSelectBtn:hover {
+    background-color: #ddd;
+}
+
+/* Checkbox sur les cartes */
+.card-checkbox {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 20;
+    accent-color: var(--primary-pink);
+}
+
+.selection-mode .card-checkbox {
+    display: block;
+}
+
+.selection-mode .flashcard-inner {
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.selection-mode .flashcard:hover .flashcard-inner {
+    transform: none;
+}
+
+.flashcard.selected .flashcard-front {
+    border: 2px solid var(--primary-pink);
+    background-color: #fff0f0;
+}

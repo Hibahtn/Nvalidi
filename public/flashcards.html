@@ -6,21 +6,21 @@
     <title>Nvalidi - Flash Cards</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../assets/css/flashcards.css">
-    <link rel="stylesheet" href="../assets/css/dash.css">
+    <link rel="stylesheet" href="/Nvalidi/assets/css/flashcards.css">
+    <link rel="stylesheet" href="/Nvalidi/assets/css/dash.css">
 </head>
 <body>
     <nav class="sidebar">
-        <div class="logo">NVAL<span>IDI</span></div>
+        <div class="logo"><a href="/Nvalidi/public/acceuil.html#home">NVAL<span>IDI</span></a></div>
         <ul class="sidebar-menu">
-            <li><a href="dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
-            <li><a href="todo.html"><i class="fas fa-tasks"></i> To Do List</a></li>
-            <li><a href="flashcards.html" class="active"><i class="fas fa-layer-group"></i> Flash Cards</a></li>
-            <li><a href="memory.html"><i class="fas fa-gamepad"></i> Jeux Mémoire</a></li>
-            <li><a href="calcul.html"><i class="fas fa-calculator"></i> Calcul Moyenne</a></li>
-            <li><a href="settings.html"><i class="fas fa-cog"></i> Paramètres</a></li>
+            <li><a href="/Nvalidi/public/dashboard.html"><i class="fas fa-home"></i> Dashboard</a></li>
+            <li><a href="/Nvalidi/public/todo.html"><i class="fas fa-tasks"></i> To Do List</a></li>
+            <li><a href="/Nvalidi/public/flashcards.html" class="active"><i class="fas fa-layer-group"></i> Flashcards</a></li>
+            <li><a href="/Nvalidi/public/memory.html"><i class="fas fa-gamepad"></i> Jeux Mémoire</a></li>
+            <li><a href="/Nvalidi/public/calcul.html"><i class="fas fa-calculator"></i> Calcul Moyenne</a></li>
+            <li><a href="/Nvalidi/public/settings.html"><i class="fas fa-cog"></i> Paramètres</a></li>
         </ul>
-        <a href="acceuil.html" class="logout-link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
+        <a href="/Nvalidi/public/acceuil.html" class="logout-link"><i class="fas fa-sign-out-alt"></i> Déconnexion</a>
     </nav>
     <div class="main-content">
         <header class="dash-header">
@@ -31,25 +31,28 @@
                 <h1>Mes Flashcards <span><i class="fas fa-layer-group card-icon"></i></span></h1>
                 <p>Retourne les cartes pour tester tes connaissances avant les examens.</p>
             </div>
+            <div class="filters-bar">
+                <select id="filterMatiere">
+                    <option value="all">Toutes les matières</option>
+                </select>
+                <select id="filterOrder">
+                    <option value="recent">Plus récentes</option>
+                    <option value="oldest">Plus anciennes</option>
+                    <option value="az">A → Z</option>
+                </select>
+                <button id="resetFilters">
+                    <i class="fas fa-rotate-left"></i> Tout afficher
+                </button>
+                <button id="selectModeBtn">
+                    <i class="fas fa-check-square"></i> Sélectionner
+                </button>
+            </div>
+            <div class="selection-bar" id="selectionBar" style="display:none;">
+                <button id="selectAllBtn"><i class="fas fa-check-double"></i> Tout sélectionner</button>
+                <button id="deleteSelectedBtn" class="btn-danger"><i class="fas fa-trash"></i> Supprimer (<span id="selectedCount">0</span>)</button>
+                <button id="cancelSelectBtn"><i class="fas fa-times"></i> Annuler</button>
+            </div>
             <div class="cards-grid">
-                <div class="flashcard">
-                    <div class="flashcard-inner">
-                        <div class="flashcard-front">
-                            <h3>Développement Web</h3>
-                            <p>Que signifie l'acronyme DOM ?</p>
-                        </div>
-                    <div class="flashcard-back">
-                        <div class="card-controls">
-                            <i class="fas fa-edit" title="Modifier"></i>
-                            <i class="fas fa-copy" title="Dupliquer"></i>
-                            <i class="fas fa-trash" title="Supprimer"></i>
-                        </div>
-                        <div class="card-back-content">
-                            <p>Document Object Model</p>
-                        </div>
-                    </div>
-                    </div>
-                </div>
                 <div class="add-card-placeholder">
                     <i class="fas fa-plus-circle"></i>
                     <p>Créer une nouvelle carte</p>
