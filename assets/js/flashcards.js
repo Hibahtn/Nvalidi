@@ -14,9 +14,73 @@ async function loadCards() {
         const el = createCardElement(card.matiere, card.question, card.reponse, card.id);
         grid.insertBefore(el, addBtn);
     });
+    updateMatiereFilter();
 }
 
 loadCards();
+
+// ---- FILTRES ----
+const filterMatiere = document.getElementById('filterMatiere');
+const filterOrder = document.getElementById('filterOrder');
+const resetFilters = document.getElementById('resetFilters');
+
+function updateMatiereFilter() {
+    const cartes = grid.querySelectorAll('.flashcard');
+    const matieres = new Set();
+    cartes.forEach(card => {
+        matieres.add(card.dataset.matiere);
+    });
+
+    const currentVal = filterMatiere.value;
+    filterMatiere.innerHTML = '<option value="all">Toutes les matières</option>';
+    matieres.forEach(m => {
+        const opt = document.createElement('option');
+        opt.value = m;
+        opt.textContent = m;
+        filterMatiere.appendChild(opt);
+    });
+    filterMatiere.value = matieres.has(currentVal) ? currentVal : 'all';
+}
+
+function applyFilters() {
+    const cartes = Array.from(grid.querySelectorAll('.flashcard'));
+    const matiereVal = filterMatiere.value;
+    const orderVal = filterOrder.value;
+
+    cartes.forEach(card => {
+        if (matiereVal === 'all' || card.dataset.matiere === matiereVal) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+
+    const visibles = cartes.filter(c => {
+        return matiereVal === 'all' || c.dataset.matiere === matiereVal;
+    });
+
+    visibles.sort((a, b) => {
+        if (orderVal === 'az') {
+            return a.dataset.matiere.localeCompare(b.dataset.matiere);
+        } else if (orderVal === 'oldest') {
+            return parseInt(a.dataset.id) - parseInt(b.dataset.id);
+        } else {
+            return parseInt(b.dataset.id) - parseInt(a.dataset.id);
+        }
+    });
+
+    visibles.forEach(card => grid.insertBefore(card, addBtn));
+}
+
+filterMatiere.addEventListener('change', applyFilters);
+filterOrder.addEventListener('change', applyFilters);
+
+resetFilters.addEventListener('click', () => {
+    filterMatiere.value = 'all';
+    filterOrder.value = 'recent';
+    applyFilters();
+});
+// ---- FIN FILTRES ----
 
 addBtn.onclick = () => modal.style.display = "block";
 cancelBtn.onclick = () => {
@@ -57,12 +121,14 @@ async function deleteCard(card) {
         body: JSON.stringify({ id: card.dataset.id })
     });
     card.remove();
+    updateMatiereFilter();
 }
 
 function createCardElement(subj, ques, answ, id) {
     const card = document.createElement('div');
     card.className = 'flashcard';
     card.dataset.id = id;
+    card.dataset.matiere = subj; // ← clé de la correction
     card.innerHTML = `
         <div class="flashcard-inner">
             <div class="flashcard-front">
@@ -85,7 +151,7 @@ function createCardElement(subj, ques, answ, id) {
 }
 
 function editCard(card) {
-    document.getElementById('subject').value = card.querySelector('h3').innerText;
+    document.getElementById('subject').value = card.dataset.matiere;
     document.getElementById('question').value = card.querySelector('.flashcard-front p').innerText;
     document.getElementById('answer').value = card.querySelector('.card-back-content p').innerText;
     modal.style.display = "block";
@@ -112,6 +178,7 @@ function editCard(card) {
             modal.style.display = "none";
             clearInputs();
             resetSaveBtn();
+            updateMatiereFilter();
         } else {
             alert("Remplis tous les champs !");
         }
@@ -119,7 +186,7 @@ function editCard(card) {
 }
 
 async function duplicateCard(card) {
-    const subj = card.querySelector('h3').innerText;
+    const subj = card.dataset.matiere;
     const ques = card.querySelector('.flashcard-front p').innerText;
     const answ = card.querySelector('.card-back-content p').innerText;
 
@@ -131,6 +198,7 @@ async function duplicateCard(card) {
     const data = await res.json();
     const copy = createCardElement(subj, ques, answ, data.id);
     grid.insertBefore(copy, addBtn);
+    updateMatiereFilter();
 }
 
 function resetSaveBtn() {
@@ -153,6 +221,7 @@ function resetSaveBtn() {
             grid.insertBefore(newCard, addBtn);
             modal.style.display = "none";
             clearInputs();
+            updateMatiereFilter();
         } else {
             alert("Remplis tous les champs !");
         }

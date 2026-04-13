@@ -219,3 +219,45 @@
 .logo a:hover span {
     filter: brightness(0.9);
 }
+
+.filters-bar {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.filters-bar select {
+    padding: 10px 15px;
+    border: 1px solid var(--accent-blue);
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    color: var(--dark-text);
+    background-color: var(--white);
+    cursor: pointer;
+    outline: none;
+    transition: 0.3s;
+}
+
+.filters-bar select:focus {
+    border-color: var(--primary-pink);
+}
+
+#resetFilters {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: 0.9rem;
+    background-color: var(--accent-blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#resetFilters:hover {
+    background-color: var(--primary-pink);
+    color: var(--dark-text);
+}
