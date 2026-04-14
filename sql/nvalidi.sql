@@ -20,17 +20,13 @@ CREATE TABLE IF NOT EXISTS flashcards (
 );
 
 
-
 CREATE TABLE IF NOT EXISTS notes (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    user_id INT,
-    niveau VARCHAR(10),   -- L1 / L2 / L3
-    matiere VARCHAR(100),
-    td FLOAT,
-    ds FLOAT,
-    examen FLOAT,
-    moyenne FLOAT,
-    credits INT,
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    user_id INT NOT NULL,
+    niveau VARCHAR(5) NOT NULL,
+    field_id VARCHAR(50) NOT NULL,
+    valeur FLOAT NOT NULL DEFAULT 0,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    UNIQUE KEY unique_note (user_id, niveau, field_id),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );

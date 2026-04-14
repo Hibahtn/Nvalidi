@@ -1,7 +1,3 @@
-// ============================================================
-//  CONFIG L3 — Licence 3 Informatique  (Semestres 5 & 6)
-// ============================================================
-
 const L3_CONFIG = {
   semesters: [
 
@@ -98,4 +94,4 @@ const L3_CONFIG = {
 };
 
 
-document.addEventListener('DOMContentLoaded', () => GradesEngine.init(L3_CONFIG));
+document.addEventListener('DOMContentLoaded', () => GradesEngine.init(L3_CONFIG, 'L3'));

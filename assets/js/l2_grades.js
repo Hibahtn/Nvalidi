@@ -1,6 +1,3 @@
-/**
- * Configuration L2 - ISIMM
- */
 const L2_CONFIG = {
     semesters: [
         {
@@ -95,4 +92,4 @@ const L2_CONFIG = {
     ]
 };
 
-document.addEventListener('DOMContentLoaded', () => GradesEngine.init(L2_CONFIG));
+document.addEventListener('DOMContentLoaded', () => GradesEngine.init(L2_CONFIG, 'L2'));

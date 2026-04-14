@@ -1,7 +1,3 @@
-// ============================================================
-//  CONFIG L1 — Licence 1 Informatique  (Semestres 1 & 2)
-// ============================================================
-
 const L1_CONFIG = {
   semesters: [
 
@@ -128,4 +124,4 @@ const L1_CONFIG = {
 };
 
 
-document.addEventListener('DOMContentLoaded', () => GradesEngine.init(L1_CONFIG));
+document.addEventListener('DOMContentLoaded', () => GradesEngine.init(L1_CONFIG, 'L1'));
