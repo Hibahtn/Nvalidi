@@ -1,79 +1,95 @@
+
 .back-link {
-    text-decoration: none;
-    color: var(--accent-blue);
-    font-weight: 600;
     display: inline-block;
     margin-bottom: 20px;
+    font-weight: 600;
+    color: var(--accent-blue);
+    text-decoration: none;
 }
 
 .back-link:hover {
     color: var(--primary-pink);
 }
 
+
+
 .page-title {
     margin-bottom: 30px;
     color: var(--dark-text);
 }
 
-.table-container {
-    background: var(--white);
-    padding: 30px;
-    border-radius: 20px;
-    margin-bottom: 30px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.02);
-    border: 1px solid #eee;
-}
-
 .semester-title {
-    color: var(--primary-pink);
     margin-bottom: 20px;
     font-size: 1.3rem;
+    color: var(--primary-pink);
 }
+
+
+
+.table-container {
+    margin-bottom: 30px;
+    padding: 30px;
+    background: var(--white);
+    border: 1px solid #eee;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+
 
 table {
     width: 100%;
     border-collapse: collapse;
 }
 
-th {
-    text-align: left;
+th, td {
     padding: 15px;
+    text-align: left;
+}
+
+th {
     background-color: var(--soft-grey);
-    border-radius: 8px;
     font-size: 0.9rem;
+    border-radius: 8px;
 }
 
 td {
-    padding: 15px;
-    border-bottom: 1px solid #f9f9f9;
+    border-bottom: 1px solid #ddd;
 }
+
+
 
 .input-note {
     width: 70px;
     padding: 8px;
-    border-radius: 10px;
-    border: 2px solid var(--soft-grey);
-    outline: none;
     text-align: center;
-    transition: 0.3s;
+    border: 2px solid var(--soft-grey);
+    border-radius: 10px;
+    outline: none;
+    transition: border-color 0.3s;
 }
 
 .input-note:focus {
     border-color: var(--accent-blue);
 }
 
+
+
 .btn-calcul {
-    background-color: var(--primary-pink);
-    color: var(--dark-text);
-    border: none;
-    padding: 18px;
-    border-radius: 15px;
-    font-weight: 700;
-    font-size: 1rem;
-    cursor: pointer;
     width: 100%;
     margin-top: 10px;
-    transition: 0.3s;
+    padding: 18px;
+    font-size: 1rem;
+    font-weight: 700;
+
+    background-color: var(--primary-pink);
+    color: var(--dark-text);
+
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .btn-calcul:hover {
