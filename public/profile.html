@@ -36,9 +36,9 @@
                         <i class="fas fa-user-graduate"></i>
                     </div>
                     <div class="user-details">
-                        <h1>Étudiante ISIMM</h1>
+                        <h1 id="profileNom">...</h1>
                         <p class="university">Institut Supérieur d'Informatique et de Mathématiques de Monastir</p>
-                        <span class="badge">L3 Informatique</span>
+                        <span class="badge" id="profileNiveau">...</span>
                     </div>
                 </div>
             </div>
@@ -47,8 +47,8 @@
                     <h3>Ma Progression</h3>
                     <div class="stat-item">
                         <span>Moyenne Générale</span>
-                        <div class="progress-bar"><div class="progress-fill" style="width: 70%;"></div></div>
-                        <span class="stat-value">14.20</span>
+                        <div class="progress-bar"><div class="progress-fill" id="progressMoy" style="width: 0%;"></div></div>
+                        <span class="stat-value" id="moyenneVal">-</span>
                     </div>
                     <div class="stat-item">
                         <span>Tâches complétées</span>
@@ -59,14 +59,34 @@
                 <div class="profile-card contact-info">
                     <h3>Coordonnées</h3>
                     <ul>
-                        <li><i class="fas fa-envelope"></i> etudiante@isimm.u-monastir.tn</li>
-                        <li><i class="fas fa-id-card"></i> ID Étudiant: 2026-0412</li>
-                        <li><i class="fas fa-calendar-alt"></i> Inscrite depuis Septembre 2023</li>
+                        <li><i class="fas fa-envelope"></i> <span id="profileEmail">...</span></li>
+                        <li><i class="fas fa-id-card"></i> ID Étudiant: <span id="profileId">...</span></li>
+                        <li><i class="fas fa-calendar-alt"></i> Membre depuis <span id="profileDate">...</span></li>
                     </ul>
                     <a href="settings.html" class="edit-profile-link">Modifier le profil</a>
                 </div>
             </div>
         </div>
     </div>
+    <script>
+    fetch('../api/user.php')
+        .then(r => r.json())
+        .then(user => {
+            // Infos de base
+            document.getElementById('profileNom').textContent    = user.nom;
+            document.getElementById('profileNiveau').textContent = user.niveau + ' Informatique';
+            document.getElementById('profileEmail').textContent  = user.email;
+            document.getElementById('profileId').textContent     = user.id;
+
+            // Date d'inscription
+            const date = new Date(user.created_at);
+            const mois = date.toLocaleString('fr-FR', { month: 'long', year: 'numeric' });
+            document.getElementById('profileDate').textContent = mois;
+
+            // Moyenne depuis les notes sauvegardées
+            return fetch('../api/user.php?moyenne=1&niveau=' + user.niveau);
+        });
+    </script>
+    <script src="../assets/js/script.js"></script>
 </body>
 </html>

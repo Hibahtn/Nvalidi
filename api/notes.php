@@ -1,7 +1,15 @@
 <?php
+session_start();
 require_once '../config/database.php';
 
-$user_id = 1;
+// Vérifier que l'utilisateur est connecté
+if (!isset($_SESSION['user_id'])) {
+    http_response_code(401);
+    echo json_encode(["error" => "Non authentifié"]);
+    exit;
+}
+
+$user_id = $_SESSION['user_id']; // ← récupère le vrai user connecté
 
 $method = $_SERVER['REQUEST_METHOD'];
 

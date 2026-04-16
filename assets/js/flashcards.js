@@ -1,5 +1,4 @@
 const API = "/Nvalidi/api/flashcards.php";
-const USER_ID = 1;
 
 const addBtn = document.querySelector('.add-card-placeholder');
 const modal = document.getElementById('cardModal');
@@ -8,7 +7,7 @@ const cancelBtn = document.getElementById('cancelBtn');
 const grid = document.querySelector('.cards-grid');
 
 async function loadCards() {
-    const res = await fetch(`${API}?action=get&user_id=${USER_ID}`);
+    const res = await fetch(`${API}?action=get`); // ← supprimer user_id
     const cards = await res.json();
     cards.forEach(card => {
         const el = createCardElement(card.matiere, card.question, card.reponse, card.id);
@@ -292,7 +291,7 @@ async function duplicateCard(card) {
     const res = await fetch(`${API}?action=create`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ user_id: USER_ID, matiere: subj, question: ques, reponse: answ })
+        body: JSON.stringify({ matiere: subj, question: ques, reponse: answ })
     });
     const data = await res.json();
     const copy = createCardElement(subj, ques, answ, data.id);
@@ -313,7 +312,7 @@ function resetSaveBtn() {
             const res = await fetch(`${API}?action=create`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ user_id: USER_ID, matiere: subj, question: ques, reponse: answ })
+                body: JSON.stringify({ matiere: subj, question: ques, reponse: answ })
             });
             const data = await res.json();
             const newCard = createCardElement(subj, ques, answ, data.id);
