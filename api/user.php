@@ -52,7 +52,7 @@ if ($method === 'POST') {
         $current = $body['current_password'] ?? '';
         $new     = $body['new_password'] ?? '';
 
-        if (strlen($new) < 😎 {
+        if (strlen($new) < 8){
             echo json_encode(["error" => "Mot de passe trop court"]);
             exit;
         }
