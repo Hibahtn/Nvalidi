@@ -1,46 +1,97 @@
-window.onload = function() {
-    console.log("Système de paramètres initialisé...");
+window.onload = async function() {
 
-    // Bouton Enregistrer Profil
+    // ── CHARGER les infos de l'utilisateur ──
+    try {
+        const res  = await fetch('../api/user.php');
+        const user = await res.json();
+
+        if (user.error) {
+            alert("❌ " + user.error);
+            return;
+        }
+
+        // Remplir les champs
+        document.getElementById('userName').value  = user.nom;
+        document.getElementById('userEmail').value = user.email;
+        document.getElementById('userLevel').value = user.niveau || 'L1';
+
+    } catch (e) {
+        console.error("❌ Erreur chargement:", e);
+    }
+
+    // ── MODIFIER LE PROFIL ──
     const saveProfileBtn = document.getElementById('saveProfileBtn');
-    
     if (saveProfileBtn) {
-        saveProfileBtn.onclick = function() {
-            const name = document.getElementById('userName').value;
-            const email = document.getElementById('userEmail').value;
-            const level = document.getElementById('userLevel').value;
+        saveProfileBtn.onclick = async function() {
+            const nom    = document.getElementById('userName').value.trim();
+            const email  = document.getElementById('userEmail').value.trim();
+            const niveau = document.getElementById('userLevel').value;
 
-            if (name.trim() === "" || email.trim() === "") {
-                alert("Erreur : Les champs Nom et Email sont obligatoires.");
+            if (!nom || !email) {
+                alert("❌ Les champs Nom et Email sont obligatoires.");
                 return;
             }
 
-            // Feedback visuel de succès
-            alert("Succès : Les informations pour " + name + " ont été mises à jour !");
-            saveProfileBtn.innerHTML = "Enregistré ! ✅";
-            saveProfileBtn.style.background = "#2ecc71"; // Vert succès
-            saveProfileBtn.style.color = "#fff";
+            try {
+                const res  = await fetch('../api/user.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'update_profile', nom, email, niveau })
+                });
+                const data = await res.json();
 
-            // Retour à l'état normal après 2 secondes
-            setTimeout(() => {
-                saveProfileBtn.innerHTML = "Enregistrer les modifications";
-                saveProfileBtn.style.background = ""; 
-                saveProfileBtn.style.color = "";
-            }, 2000);
+                if (data.success) {
+                    saveProfileBtn.innerHTML = "Enregistré ! ✅";
+                    saveProfileBtn.style.background = "#2ecc71";
+                    saveProfileBtn.style.color = "#fff";
+                    setTimeout(() => {
+                        saveProfileBtn.innerHTML = "Enregistrer les modifications";
+                        saveProfileBtn.style.background = "";
+                        saveProfileBtn.style.color = "";
+                    }, 2000);
+                } else {
+                    alert("❌ " + data.error);
+                }
+            } catch (e) {
+                alert("❌ Erreur serveur");
+            }
         };
     }
 
-    // Bouton Mettre à jour Mot de Passe
+    // ── MODIFIER LE MOT DE PASSE ──
     const savePassBtn = document.getElementById('savePassBtn');
     if (savePassBtn) {
-        savePassBtn.onclick = function() {
-            const newPassword = document.getElementById('newPassword').value;
+        savePassBtn.onclick = async function() {
+            const current = document.getElementById('currentPassword').value;
+            const newPass = document.getElementById('newPassword').value;
 
-            if (newPassword.length < 8) {
-                alert("Sécurité : Le mot de passe doit faire au moins 8 caractères.");
-            } else {
-                alert("Sécurité : Votre mot de passe a été modifié avec succès !");
-                document.getElementById('newPassword').value = ""; // Vide le champ
+            if (!current || !newPass) {
+                alert("❌ Remplissez les deux champs mot de passe !");
+                return;
+            }
+
+            if (newPass.length < 8) {
+                alert("❌ Le nouveau mot de passe doit faire au moins 8 caractères !");
+                return;
+            }
+
+            try {
+                const res  = await fetch('../api/user.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ action: 'update_password', current_password: current, new_password: newPass })
+                });
+                const data = await res.json();
+
+                if (data.success) {
+                    alert("✅ Mot de passe modifié avec succès !");
+                    document.getElementById('currentPassword').value = '';
+                    document.getElementById('newPassword').value = '';
+                } else {
+                    alert("❌ " + data.error);
+                }
+            } catch (e) {
+                alert("❌ Erreur serveur");
             }
         };
     }
