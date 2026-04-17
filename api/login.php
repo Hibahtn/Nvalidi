@@ -66,4 +66,15 @@ if ($action === 'logout') {
     echo json_encode(["success" => true]);
     exit;
 }
+
+// ── CHECK SESSION ──
+if ($action === 'check_session') {
+    if (isset($_SESSION['user_id'])) {
+        echo json_encode(["loggedIn" => true, "nom" => $_SESSION['nom']]);
+    } else {
+        echo json_encode(["loggedIn" => false]);
+    }
+    exit;
+}
+
 ?>

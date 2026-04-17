@@ -21,7 +21,9 @@ window.onload = function() {
                 const data = await res.json();
 
                 if (data.success) {
-                    window.location.href = 'dashboard.html';
+                    const redirect = sessionStorage.getItem('redirectAfterLogin');
+                    sessionStorage.removeItem('redirectAfterLogin');
+                    window.location.href = redirect ? redirect : 'dashboard.html';
                 } else {
                     alert("❌ " + data.error);
                 }
