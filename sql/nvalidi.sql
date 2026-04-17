@@ -30,3 +30,4 @@ CREATE TABLE IF NOT EXISTS notes (
     UNIQUE KEY unique_note (user_id, niveau, field_id),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+ALTER TABLE users ADD COLUMN niveau VARCHAR(20) DEFAULT 'L1' AFTER email;
