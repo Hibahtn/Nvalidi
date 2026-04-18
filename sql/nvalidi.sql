@@ -40,3 +40,5 @@ CREATE TABLE IF NOT EXISTS todos (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
+ALTER TABLE todos 
+ADD COLUMN status ENUM('a_faire', 'en_cours', 'termine') DEFAULT 'a_faire';

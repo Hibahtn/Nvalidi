@@ -1,19 +1,13 @@
 <?php
 session_start();
 require_once '../config/database.php';
-
-// Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
     echo json_encode(["success" => false, "error" => "Non autorisé"]);
     exit;
 }
 
 $user_id = $_SESSION['user_id'];
-
-// Get action from URL
 $action = $_GET['action'] ?? '';
-
-// For POST requests, get the JSON body
 $input = json_decode(file_get_contents('php://input'), true);
 
 switch ($action) {
@@ -33,7 +27,7 @@ switch ($action) {
             exit;
         }
 
-        $stmt = $pdo->prepare("INSERT INTO todos (user_id, task_text, priority) VALUES (?, ?, ?)");
+        $stmt = $pdo->prepare("INSERT INTO todos (user_id, task_text, priority, status) VALUES (?, ?, ?, 'a_faire')");
         $stmt->execute([$user_id, $task_text, $priority]);
         $id = $pdo->lastInsertId();
         
@@ -42,14 +36,15 @@ switch ($action) {
 
     case 'update':
         $id = $input['id'] ?? null;
-        $is_completed = isset($input['is_completed']) ? (int)$input['is_completed'] : 0;
+        $status = $input['status'] ?? null;
 
-        if ($id) {
-            $stmt = $pdo->prepare("UPDATE todos SET is_completed = ? WHERE id = ? AND user_id = ?");
-            $stmt->execute([$is_completed, $id, $user_id]);
+        if ($id && $status) {
+            $is_completed = ($status === 'termine') ? 1 : 0;
+            $stmt = $pdo->prepare("UPDATE todos SET status = ?, is_completed = ? WHERE id = ? AND user_id = ?");
+            $stmt->execute([$status, $is_completed, $id, $user_id]);
             echo json_encode(["success" => true]);
         } else {
-            echo json_encode(["success" => false, "error" => "ID manquant"]);
+            echo json_encode(["success" => false, "error" => "Données manquantes"]);
         }
         break;
 
@@ -61,6 +56,19 @@ switch ($action) {
             echo json_encode(["success" => true]);
         } else {
             echo json_encode(["success" => false, "error" => "ID manquant"]);
+        }
+        break;
+
+    case 'update_priority':
+        $id = $input['id'] ?? null;
+        $priority = $input['priority'] ?? null;
+
+        if ($id && $priority) {
+            $stmt = $pdo->prepare("UPDATE todos SET priority = ? WHERE id = ? AND user_id = ?");
+            $stmt->execute([$priority, $id, $user_id]);
+            echo json_encode(["success" => true]);
+        } else {
+            echo json_encode(["success" => false, "error" => "Données manquantes"]);
         }
         break;
 

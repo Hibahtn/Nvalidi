@@ -43,8 +43,50 @@
                     </div>
                     <button class="add-btn">Ajouter</button>
                 </div>
+                <div class="todo-filters">
+                    <div class="filters-left">
+                        <select class="filter-select" id="status-filter">
+                            <option value="tous">Tous les status</option>
+                            <option value="a_faire">À faire</option>
+                            <option value="en_cours">En cours</option>
+                            <option value="termine">Terminé</option>
+                        </select>
+                        <select class="filter-select" id="priority-filter">
+                            <option value="tous">Toutes les priorités</option>
+                            <option value="basse">Basse</option>
+                            <option value="moyenne">Moyenne</option>
+                            <option value="haute">Haute</option>
+                        </select>
+                        <select class="filter-select" id="sort-filter">
+                            <option value="recent">Plus récent</option>
+                            <option value="ancien">Plus ancien</option>
+                            <option value="az">A → Z</option>
+                            <option value="za">Z → A</option>
+                        </select>
+                    </div>
+                    <div class="filters-right">
+                        <button class="reset-filters-btn" id="reset-filters"><i class="fas fa-redo"></i> Tout afficher</button>
+                        <button class="select-mode-btn" id="select-mode"><i class="fas fa-check-square"></i> Sélectionner</button>
+                    </div>
+                </div>
+                <div class="selection-bar" id="selection-bar" style="display:none;">
+                    <button class="sel-btn" id="select-all"><i class="fas fa-check-double"></i> Tout sélectionner</button>
+                    <button class="sel-btn danger" id="delete-selected"><i class="fas fa-trash-alt"></i> Supprimer (0)</button>
+                    <select class="filter-select" id="status-selected">
+                        <option value="">statut</option>
+                        <option value="a_faire">À faire</option>
+                        <option value="en_cours">En cours</option>
+                        <option value="termine">Terminé</option>
+                    </select>
+                    <select class="filter-select" id="priority-selected">
+                        <option value="">priorité</option>
+                        <option value="basse">Basse</option>
+                        <option value="moyenne">Moyenne</option>
+                        <option value="haute">Haute</option>
+                    </select>
+                    <button class="sel-btn cancel" id="cancel-select"><i class="fas fa-times"></i> Annuler</button>
+                </div>
                 <ul class="todo-list">
-                    <!-- Les tâches seront chargées dynamiquement -->
                 </ul>
                 <div class="empty-state">
                     <p>Bravo ! Tu es à jour dans tes tâches !</p>
