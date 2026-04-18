@@ -69,6 +69,8 @@
     display: flex;
     flex-direction: column;
     gap: 5px;
+    word-break: break-word;
+    min-width: 0;        
 }
 
 .task-meta {
@@ -125,6 +127,7 @@
     border: 1px solid #eee;
     border-left: 6px solid #ccc; /* Default */
     transition: 0.3s;
+    min-width: 0;
 }
 
 .todo-item.item-basse { border-left-color: #81ecec; }
@@ -140,6 +143,8 @@
     display: flex;
     align-items: center;
     gap: 15px;
+    flex: 1;
+    min-width: 0;
 }
 
 .todo-checkbox {
