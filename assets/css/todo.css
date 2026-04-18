@@ -7,7 +7,89 @@
     display: flex;
     gap: 15px;
     margin-bottom: 30px;
+    flex-wrap: wrap;
 }
+
+.todo-priority, .todo-deadline {
+    display: none;
+}
+
+.priority-selector {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    background: var(--white);
+    padding: 5px;
+    border-radius: 12px;
+    border: 1px solid var(--accent-blue);
+}
+
+.priority-option {
+    padding: 8px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--dark-text);
+    position: relative;
+    border: 1px solid transparent;
+}
+
+.priority-option::before {
+    content: "";
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-right: 8px;
+}
+
+.priority-option.basse::before { background-color: #81ecec; }
+.priority-option.moyenne::before { background-color: #fab1a0; }
+.priority-option.haute::before { background-color: #ff7675; }
+
+/* Set text labels (moved to HTML for better visibility/accessibility) */
+
+.priority-option:hover {
+    background: var(--soft-grey);
+}
+
+.priority-option.active {
+    background: var(--white);
+    border-color: var(--accent-blue);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.priority-option.active.basse { border-color: #81ecec; background: #e0fcfc; }
+.priority-option.active.moyenne { border-color: #fab1a0; background: #fff2f0; }
+.priority-option.active.haute { border-color: #ff7675; background: #fff0f0; }
+
+.task-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.task-meta {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.priority-badge {
+    padding: 2px 8px;
+    border-radius: 8px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.priority-basse { background: #e0fcfc; color: #00cec9; }
+.priority-moyenne { background: #fff2f0; color: #fab1a0; }
+.priority-haute { background: #fff0f0; color: #ff7675; }
+
 
 .todo-input {
     flex: 1;
@@ -41,7 +123,17 @@
     justify-content: space-between;
     margin-bottom: 15px;
     border: 1px solid #eee;
+    border-left: 6px solid #ccc; /* Default */
     transition: 0.3s;
+}
+
+.todo-item.item-basse { border-left-color: #81ecec; }
+.todo-item.item-moyenne { border-left-color: #fab1a0; }
+.todo-item.item-haute { border-left-color: #ff7675; }
+
+.todo-item:hover {
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
 }
 
 .todo-text {

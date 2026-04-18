@@ -30,4 +30,13 @@ CREATE TABLE IF NOT EXISTS notes (
     UNIQUE KEY unique_note (user_id, niveau, field_id),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
 );
-ALTER TABLE users ADD COLUMN niveau VARCHAR(20) DEFAULT 'L1' AFTER email;
+
+CREATE TABLE IF NOT EXISTS todos (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    task_text TEXT NOT NULL,
+    priority ENUM('basse', 'moyenne', 'haute') DEFAULT 'moyenne',
+    is_completed TINYINT(1) DEFAULT 0,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
