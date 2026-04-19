@@ -362,3 +362,42 @@
     border: 2px solid var(--primary-pink);
     background-color: #fff0f0;
 }
+
+.btn-learned {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    background: rgba(255,255,255,0.2);
+    border: 2px solid rgba(255,255,255,0.6);
+    border-radius: 20px;
+    padding: 6px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    color: rgba(255,255,255,0.8);
+    transition: all 0.3s;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.flashcard:hover .btn-learned,
+.flashcard.flipped .btn-learned {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.btn-learned.learned {
+    background: rgba(46, 204, 113, 0.3);
+    border-color: #2ecc71;
+    color: #038338;
+}
+
+.btn-learned:not(.learned) {
+    background: rgba(255,255,255,0.15);
+    border-color: rgba(255,255,255,0.8);
+    color: white;
+}
+
+.btn-learned:hover {
+    transform: scale(1.05);
+}

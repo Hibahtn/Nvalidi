@@ -10,7 +10,7 @@ async function loadCards() {
     const res = await fetch(`${API}?action=get`); // ← supprimer user_id
     const cards = await res.json();
     cards.forEach(card => {
-        const el = createCardElement(card.matiere, card.question, card.reponse, card.id);
+        const el = createCardElement(card.matiere, card.question, card.reponse, card.id, card.is_learned);
         grid.insertBefore(el, addBtn);
     });
     updateMatiereFilter();
@@ -172,7 +172,7 @@ cancelBtn.onclick = () => {
     resetSaveBtn();
 };
 
-grid.addEventListener('click', (e) => {
+grid.addEventListener('click', async(e) => {
     const card = e.target.closest('.flashcard');
     if (!card) return;
 
@@ -208,6 +208,24 @@ grid.addEventListener('click', (e) => {
         return;
     }
 
+    if (e.target.closest('.btn-learned')) {
+        e.stopPropagation();
+        const btn = card.querySelector('.btn-learned');
+        const res = await fetch(`${API}?action=toggle_learned`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: card.dataset.id })
+        });
+        const data = await res.json();
+        if (data.success) {
+            const learned = data.is_learned == 1;
+            btn.className = `btn-learned ${learned ? 'learned' : ''}`;
+            btn.title = learned ? 'Apprise' : 'Non apprise';
+            btn.innerHTML = `<i class="fas ${learned ? 'fa-check-circle' : 'fa-circle'}"></i> ${learned ? 'Apprise' : 'Non apprise'}`;
+        }
+        return;
+    }
+
     card.classList.toggle('flipped');
 });
 
@@ -221,7 +239,7 @@ async function deleteCard(card) {
     updateMatiereFilter();
 }
 
-function createCardElement(subj, ques, answ, id) {
+function createCardElement(subj, ques, answ, id, isLearned = false) {
     const card = document.createElement('div');
     card.className = 'flashcard';
     card.dataset.id = id;
@@ -244,6 +262,10 @@ function createCardElement(subj, ques, answ, id) {
                 </div>
             </div>
         </div>
+        <button class="btn-learned ${isLearned ? 'learned' : ''}" title="${isLearned ? 'Apprise' : 'Non apprise'}">
+            <i class="fas ${isLearned ? 'fa-check-circle' : 'fa-circle'}"></i>
+            ${isLearned ? 'Apprise' : 'Non apprise'}
+        </button>
     `;
     return card;
 }
