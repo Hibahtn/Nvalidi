@@ -60,10 +60,10 @@ const GradesEngine = (() => {
 
     const showResults = (res) => {
         const box = document.getElementById("resultats");
-        if (!box) return;
+        if (!box) return null;
         const s1 = res.semesters[0];
         const s2 = res.semesters[1];
-        if (!s1 || !s2) return;
+        if (!s1 || !s2) return null;
         const moyGen = (s1.moy + s2.moy) / 2;
         const totalCr = s1.credits + s2.credits;
         box.innerHTML = `
@@ -86,29 +86,30 @@ const GradesEngine = (() => {
             <h3 style="text-align:center;">Total Crédits</h3>
             <h2 style="text-align:center; color:green;">${totalCr} / 60</h2>
         `;
+        return moyGen;
     };
 
     const collectNotes = () => {
         const notes = {};
         document.querySelectorAll(".input-note").forEach(input => {
-            if (input.id && input.value !== '') {
+            if (input.id && input.value.trim() !== '') {  // ← ignorer les champs vides
                 notes[input.id] = parseFloat(input.value);
             }
         });
         return notes;
     };
 
-    const sauvegarder = async (niveau) => {
+    const sauvegarder = async (niveau, moyenne) => {
         const notes = collectNotes();
         try {
             const res = await fetch('../api/notes.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ niveau, notes })
+                body: JSON.stringify({ niveau, notes, moyenne })
             });
             const data = await res.json();
             if (data.success) {
-                console.log("✅ Notes sauvegardées");
+                console.log("✅ Notes et moyenne sauvegardées");
             }
         } catch (e) {
             console.error("❌ Erreur sauvegarde:", e);
@@ -151,8 +152,8 @@ const GradesEngine = (() => {
                 .addEventListener("click", () => {
                     dejaClique = true;
                     const res = run(config);
-                    showResults(res);
-                    sauvegarder(niveau);
+                    const moyGen = showResults(res);  // ← récupérer la moyenne
+                    sauvegarder(niveau, moyGen);      // ← envoyer la moyenne
                 });
         }
     };

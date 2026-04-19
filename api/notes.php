@@ -33,20 +33,35 @@ if ($method === 'POST') {
     $body = json_decode(file_get_contents("php://input"), true);
     $niveau = $body['niveau'] ?? '';
     $notes  = $body['notes'] ?? [];
+    $moyenne = $body['moyenne'] ?? null;
 
-    if (!$niveau || empty($notes)) {
+    if (!$niveau) {
         echo json_encode(["error" => "données manquantes"]);
         exit;
     }
 
-    $stmt = $pdo->prepare("
-        INSERT INTO notes (user_id, niveau, field_id, valeur)
-        VALUES (?, ?, ?, ?)
-        ON DUPLICATE KEY UPDATE valeur = VALUES(valeur)
-    ");
+    // ← Supprimer toutes les notes de ce niveau d'abord
+    $stmtDel = $pdo->prepare("DELETE FROM notes WHERE user_id = ? AND niveau = ?");
+    $stmtDel->execute([$user_id, $niveau]);
 
-    foreach ($notes as $field_id => $valeur) {
-        $stmt->execute([$user_id, $niveau, $field_id, $valeur]);
+    // ← Réinsérer seulement les champs non vides
+    if (!empty($notes)) {
+        $stmt = $pdo->prepare("
+            INSERT INTO notes (user_id, niveau, field_id, valeur)
+            VALUES (?, ?, ?, ?)
+        ");
+        foreach ($notes as $field_id => $valeur) {
+            $stmt->execute([$user_id, $niveau, $field_id, $valeur]);
+        }
+    }
+
+    // Sauvegarder la moyenne
+    if ($moyenne !== null) {
+        $stmt2 = $pdo->prepare("
+            INSERT INTO moyennes_calculees (user_id, niveau, moyenne)
+            VALUES (?, ?, ?)
+        ");
+        $stmt2->execute([$user_id, $niveau, $moyenne]);
     }
 
     echo json_encode(["success" => true]);
