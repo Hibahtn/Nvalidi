@@ -42,3 +42,14 @@ CREATE TABLE IF NOT EXISTS todos (
 );
 ALTER TABLE todos 
 ADD COLUMN status ENUM('a_faire', 'en_cours', 'termine') DEFAULT 'a_faire';
+
+CREATE TABLE IF NOT EXISTS moyennes_calculees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    niveau VARCHAR(5) NOT NULL,
+    moyenne FLOAT NOT NULL,
+    calculated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+ALTER TABLE flashcards ADD COLUMN is_learned TINYINT(1) DEFAULT 0;

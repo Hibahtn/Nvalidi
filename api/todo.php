@@ -72,6 +72,24 @@ switch ($action) {
         }
         break;
 
+    case 'stats':
+        $stmt = $pdo->prepare("
+            SELECT 
+                COUNT(*) as total,
+                SUM(status = 'a_faire') as a_faire,
+                SUM(status = 'en_cours') as en_cours,
+                SUM(status = 'termine') as termine
+            FROM todos 
+            WHERE user_id = ?
+        ");
+        $stmt->execute([$user_id]);
+        $stats = $stmt->fetch(PDO::FETCH_ASSOC);
+        $total = $stats['total'] > 0 ? $stats['total'] : 1;
+        $stats['progression'] = round(($stats['termine'] / $total) * 100);
+        
+        echo json_encode($stats);
+        break;
+
     default:
         echo json_encode(["success" => false, "error" => "Action inconnue"]);
         break;

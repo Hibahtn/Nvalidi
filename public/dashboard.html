@@ -30,21 +30,68 @@
         </header>
         <div class="content-area">
             <div class="welcome-banner">
-                <h1>Bienvenue, futur ingénieur ! <i class="fa-solid fa-hand"></i></h1>
-                <p>Tu as 3 tâches prévues aujourd'hui et tes flashcards t'attendent.</p>
+                <h1>Bienvenue, futur ingénieur <span id="user-nom" style="color: inherit"></span> ! <i class="fa-solid fa-hand"></i></h1>
+                <p id="welcome-msg">Chargement...</p>
             </div>
+            <h2 class="section-title"><i class="fas fa-graduation-cap"></i> Mes Moyennes</h2>
             <div class="stats-grid">
                 <div class="stat-card">
-                    <h3 style="color: var(--accent-blue);">12.5</h3>
+                    <h3 id="last-moyenne" style="color: var(--accent-blue);">--</h3>
                     <p>Dernière Moyenne</p>
+                    <small id="last-moyenne-niveau" style="color:gray;"></small>
                 </div>
                 <div class="stat-card">
-                    <h3 style="color: var(--primary-pink);">15</h3>
-                    <p>Cartes Apprises</p>
+                    <h3 id="best-moyenne" style="color: var(--accent-blue);">--</h3>
+                    <p>Meilleure Moyenne</p>
+                    <small id="best-moyenne-niveau" style="color:gray;"></small>
+                </div>
+            </div>
+            <div id="alertes-container"></div>
+            <h2 class="section-title"><i class="fas fa-tasks card-icon"></i> Mes Tâches</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 id="todo-total" style="color: var(--dark-text);">--</h3>
+                    <p>Total Tâches</p>
                 </div>
                 <div class="stat-card">
-                    <h3 style="color: var(--dark-text);">80%</h3>
-                    <p>Progression</p>
+                    <h3 id="todo-afaire" style="color: var(--primary-pink);">--</h3>
+                    <p>À Faire</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="todo-encours" style="color: orange;">--</h3>
+                    <p>En Cours</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="todo-termine" style="color: #2ecc71;">--</h3>
+                    <p>Terminées</p>
+                </div>
+            </div>
+            <div class="stat-card" style="margin-top: 15px;">
+                <p>Progression des tâches : <strong id="todo-progression">0</strong>%</p>
+                <div style="background:#eee; border-radius:10px; height:12px; margin-top:8px;">
+                    <div id="todo-progress-bar" style="height:12px; border-radius:10px; background: var(--primary-pink); width:0%; transition: width 0.5s;"></div>
+                </div>
+            </div>
+            <h2 class="section-title"><i class="fas fa-layer-group card-icon"></i> Mes Flashcards</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 id="flash-total" style="color: var(--dark-text);">--</h3>
+                    <p>Cartes Créées</p>
+                </div>
+            </div>
+            <div class="stat-card">
+                <h3 id="flash-apprises" style="color: #2ecc71;">--</h3>
+                <p>Cartes Apprises</p>
+            </div>
+            <h2 class="section-title"><i class="fas fa-gamepad card-icon"></i> Memory Game</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3 id="memory-best" style="color: var(--primary-pink);">--</h3>
+                    <p>Meilleur Score</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="memory-parties" style="color: var(--dark-text);">--</h3>
+                    <p>Parties Jouées</p>
                 </div>
             </div>
         </div>
