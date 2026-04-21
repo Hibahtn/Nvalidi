@@ -43,25 +43,12 @@
                 </div>
             </div>
             <div class="profile-grid">
-                <div class="profile-card stats-summary">
-                    <h3>Ma Progression</h3>
-                    <div class="stat-item">
-                        <span>Moyenne Générale</span>
-                        <div class="progress-bar"><div class="progress-fill" id="progressMoy" style="width: 0%;"></div></div>
-                        <span class="stat-value" id="moyenneVal">-</span>
-                    </div>
-                    <div class="stat-item">
-                        <span>Tâches complétées</span>
-                        <div class="progress-bar"><div class="progress-fill" style="width: 85%; background: var(--primary-pink);"></div></div>
-                        <span class="stat-value">85%</span>
-                    </div>
-                </div>
                 <div class="profile-card contact-info">
                     <h3>Coordonnées</h3>
                     <ul>
                         <li><i class="fas fa-envelope"></i> <span id="profileEmail">...</span></li>
                         <li><i class="fas fa-id-card"></i> ID Étudiant: <span id="profileId">...</span></li>
-                        <li><i class="fas fa-calendar-alt"></i> Membre depuis <span id="profileDate">...</span></li>
+                        <li><i class="fas fa-calendar-alt"></i> Inscrit depuis <span id="profileDate">...</span></li>
                     </ul>
                     <a href="settings.html" class="edit-profile-link">Modifier le profil</a>
                 </div>
@@ -82,9 +69,6 @@
             const date = new Date(user.created_at);
             const mois = date.toLocaleString('fr-FR', { month: 'long', year: 'numeric' });
             document.getElementById('profileDate').textContent = mois;
-
-            // Moyenne depuis les notes sauvegardées
-            return fetch('../api/user.php?moyenne=1&niveau=' + user.niveau);
         });
     </script>
     <script src="../assets/js/script.js"></script>
