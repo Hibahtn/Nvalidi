@@ -8,6 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let firstCard, secondCard;
     let tries = 0;
     let matchedPairs = 0;
+    
+    // ── localStorage ──
+    let partiesJouees = parseInt(localStorage.getItem('memory_parties_jouees')) || 0;
+    let bestScore = parseInt(localStorage.getItem('memory_best_score')) || null;
 
     // Retourner la carte
     function flipCard() {
@@ -41,6 +45,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Alerte de réussite et Reset
     function showVictory() {
+        // Incrémenter les parties jouées
+        partiesJouees++;
+        localStorage.setItem('memory_parties_jouees', partiesJouees);
+
+        // Meilleur score (moins d'essais = meilleur)
+        if (bestScore === null || tries < bestScore) {
+            bestScore = tries;
+            localStorage.setItem('memory_best_score', bestScore);
+        }
+
         alert(`Félicitations ! 🎉\nTu as trouvé toutes les paires en ${tries} essais.\nLe jeu va recommencer !`);
         resetGame();
     }
