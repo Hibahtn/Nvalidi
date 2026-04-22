@@ -69,7 +69,7 @@ La plateforme regroupe plusieurs outils essentiels dans une seule interface simp
 ## 🏗️ Structure du projet
 
 ```
-project/
+Nvalidi/
 ├── api/            # Back-end PHP
 ├── assets/
 │   ├── css/        # Styles
@@ -142,7 +142,7 @@ Ce projet vise à :
 ## 👨‍💻 Auteurs
 
 * Firas Hamdi
-* Ranim Khadraoui
+* Ranim Khadhraoui
 * Rayen Jaidi
 * Hiba Hitana
 
