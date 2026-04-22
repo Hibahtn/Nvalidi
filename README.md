@@ -1,70 +1,161 @@
-#  Project Name
-Ce projet consiste en la création d’un site web destiné aux étudiants, ayant pour objectif principal de les accompagner et de les aider dans leur parcours scolaire. Le site proposera plusieurs sections utiles et accessibles, pensées pour répondre à différents besoins liés aux études.
+# 🎓 Nvalidi - Plateforme Éducative pour les Étudiants de l’ISIMM
+
+## 📌 Description
+
+**Nvalidi** est une application web éducative dédiée aux étudiants de **l’ISIMM Monastir**.
+L’objectif principal de ce projet est d’aider les étudiants à mieux organiser leur travail académique et à améliorer leurs performances tout au long de leur parcours universitaire.
+
+La plateforme regroupe plusieurs outils essentiels dans une seule interface simple et intuitive.
 
 ---
 
-## 👥 Team Members
+## 🚀 Fonctionnalités
 
-- Name 1 – Frontend
-- Name 2 – Backend
-- Name 3 – JavaScript
-- Name 4 – Database
+### 🔐 Authentification
 
----
-
-##  Project Objective
-
-The goal of this project is to create a web platform that allows users to:
-- Register and login
-- Manage their profile
-- Interact with dynamic content
+* Inscription et connexion des utilisateurs
+* Gestion des sessions
+* Accès personnalisé à chaque utilisateur
 
 ---
 
-## Technologies Used
+### 📝 Gestion des tâches (To-Do List)
 
-- HTML5
-- CSS3
-- JavaScript
-- PHP
-- MySQL (if you use database)
-- XAMPP (for local server)
+* Ajouter, modifier et supprimer des tâches
+* Définir une priorité (basse, moyenne, haute)
+* Suivre l’état (à faire, en cours, terminé)
+* Filtrer et trier les tâches
 
 ---
 
-##  Project Structure
-nvalidi/
-│
-├── public/
-│   ├── index.php
-│   ├── login.php
-│   ├── register.php
-│
+### 📚 Système de Flashcards
+
+* Création de cartes de révision (question/réponse)
+* Marquer une carte comme apprise
+* Modifier, dupliquer ou supprimer une carte
+* Faciliter la mémorisation
+
+---
+
+### 📊 Calcul des moyennes académiques
+
+* Calcul automatique pour les niveaux L1, L2 et L3
+* Calcul des :
+
+  * Moyennes par matière
+  * Moyennes par module
+  * Moyennes semestrielles
+  * Moyenne générale
+* Calcul des crédits obtenus
+
+---
+
+### 🧠 Jeu de mémoire
+
+* Jeu interactif pour améliorer la mémoire
+* Comptage du nombre d’essais
+* Sauvegarde du meilleur score
+
+---
+
+### 👤 Profil utilisateur et paramètres
+
+* Modification des informations personnelles
+* Changement de mot de passe
+* Choix du niveau académique
+
+---
+
+## 🏗️ Structure du projet
+
+```
+project/
+├── api/            # Back-end PHP
 ├── assets/
-│   ├── css/
-│   ├── js/
-│   └── images/
-│
-├── includes/
-│   ├── header.php
-│   ├── footer.php
-│   └── navbar.php
-│
-├── modules/
-│   ├── calculator/
-│   ├── flashcards/
-│   ├── memory-game/
-│   └── dashboard/
-│
-├── config/
-│   └── database.php
-│
-├── api/
-│   ├── notes.php
-│   └── flashcards.php
-│
-├── sql/
-│   └── nvalidi.sql
-│
+│   ├── css/        # Styles
+│   ├── js/         # Scripts JavaScript
+│   └── img/        # Images
+├── config/         # Configuration base de données
+├── public/         # Pages HTML
+├── sql/            # Script SQL
 └── README.md
+```
 
+---
+
+## 🛠️ Technologies utilisées
+
+### Front-end
+
+* HTML
+* CSS
+* JavaScript (Vanilla JS)
+
+### Back-end
+
+* PHP
+
+### Base de données
+
+* MySQL
+
+### Communication
+
+* Fetch API
+* JSON
+
+---
+
+## 🗄️ Base de données
+
+La base de données est composée des tables principales suivantes :
+
+* `users` : informations des utilisateurs
+* `todos` : gestion des tâches
+* `flashcards` : cartes de révision
+* `notes` : résultats académiques
+
+Chaque table est liée par `user_id` afin d’assurer une gestion personnalisée des données.
+
+---
+
+## 🎯 Objectifs du projet
+
+Ce projet vise à :
+
+* Aider les étudiants à mieux s’organiser
+* Faciliter la révision et la mémorisation
+* Suivre les performances académiques
+* Centraliser plusieurs outils utiles dans une seule plateforme
+
+---
+
+## 🔮 Améliorations futures
+
+* Version mobile de l’application
+* Système de notifications
+* Statistiques avancées
+* Intégration avec d’autres plateformes éducatives
+
+---
+
+## 👨‍💻 Auteurs
+
+* Firas Hamdi
+* Ranim Khadraoui
+* Rayen Jaidi
+* Hiba Hitana
+
+
+---
+
+## 📍 Université
+
+Projet réalisé pour les étudiants de
+**ISIMM Monastir (Institut Supérieur d’Informatique et de Mathématiques de Monastir)**
+
+---
+
+## 📄 Licence
+
+Projet réalisé à des fins pédagogiques.
