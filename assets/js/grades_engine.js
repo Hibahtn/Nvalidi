@@ -22,7 +22,9 @@ const GradesEngine = (() => {
         if (mat.tdId && mat.dsId) {
             const td = getVal(mat.tdId);
             const ds = getVal(mat.dsId);
-            return td * 0.1 + ds * 0.2 + ex * 0.7;
+            const wTD = mat.wTD ?? 0.1;
+            const wDS = mat.wDS ?? 0.2;
+            return td * wTD + ds * wDS + ex * (1 - wTD - wDS);
         }
         if (mat.dsId) {
             const ds = getVal(mat.dsId);
